@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="copyright" content="2005 by Jean-François Pillou">
+<META NAME="ROBOTS" content="all">
+<META NAME="author" content="Jean-François Pillou">
+<META NAME="subject" content="Comment ça marche? [Le Spoofing IP]">
+<META NAME="topic" content="Hacking">
+<META NAME="keywords" content="Mauvais controle des donn&eacute;es, Falsification des donn&eacute;es saisies">
+<META NAME="title" content="Attaques - Falsification des donn&eacute;es HTTP">
+<title>Attaques par falsification de donn&eacute;es</title>
+<link rel="stylesheet" href="../ccm.css" type="text/css">
+
+
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute; informatique" href="http://www.commentcamarche.net/rss/actualite.php3">
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute;s du site CommentCaMarche.net" href="http://www.commentcamarche.net/rss/rss.php3">
+</head>
+
+<body>
+
+<table class="ccmmain">
+<tr>
+<td height="1" width="170"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="540"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="12"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="10"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+</tr>
+
+<tr>
+<td colspan="2" bgcolor="#AEBFE2" style="vertical-align:top;text-align:left;height:46;background-color:#AEBFE2;">
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td style="vertical-align:top;"><a href="../index.htm" target="_top"><img src="../images/logotop.png" border="0" width="328" height="42" title="Comment Ca Marche - Communaut&eacute; informatique" alt="Comment Ca Marche - Communaut&eacute; informatique"></a></td>
+    <td style="width:30px">&nbsp;</td>
+    <td style="vertical-align:middle;text-align:left"></td></tr>
+</table>
+</td>
+<td style="background-color: #AEBFE2; vertical-align:bottom;">&nbsp;</td>
+<td style="background-color: #AEBFE2;">&nbsp;</td>
+</tr>
+
+<tr>
+<td bgcolor="#8EA6D6"><div id="ccmicons"><a href="../index.htm"  ><img src="../images/icohome2.gif" name="icohome" alt="Accueil - Encyclop&eacute;die informatique" title="Accueil - Encyclop&eacute;die informatique" width="24" border="0"></a><a href="http://www.commentcamarche.net/encyclopedie"  ><img src="../images/icozip2.gif" name="icozip" alt="T&eacute;l&eacute;charger l'encyclop&eacute;die" title="T&eacute;l&eacute;charger l'encyclop&eacute;die" width="24" border="0"></a><a href="http://www.commentcamarche.net/ccmbugs/?Bug_url=%2Fattaques%2Ffalsification-donnees.php3#ecrire"  ><img src="../images/icowri2.gif" name="icowri" alt="Contribuer &agrave; cet article" width="24" border="0"></a><a href="http://www.commentcamarche.net/contact/"  ><img src="../images/icomail2.gif" name="icomail" alt="" title="Ecrire &agrave; Jean-Francois Pillou" width="24"  border="0"></a></div></td>
+<td colspan="3" bgcolor="#8EA6D6"></td>
+</tr>
+
+<tr>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1" rowspan="2"><img src="../images/pixel_white.png" height="1" width="12" alt=""></td>
+
+<td bgcolor="#FFFFFF" height="100%" valign="top" rowspan="2">
+</td>
+</tr>
+
+<tr><td valign="top" colspan="3"><div id="contenu"><h1> Attaques - Falsification des donn&eacute;es HTTP</h1><table border="0" cellpadding="0" cellspacing="0" width="722">
+	<tr>
+		<td><img src="images/falsification-donnees.png" alt="Falsification de donn&eacute;es"></td>
+		<td valign="top" width="38"><a href="attaques-web.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a></td>
+		<td valign="top" width="38"><a href="manipulation-url.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></td>		<td valign="top" width="63"><a href="../index.htm"><img src="../images/logoPClw.gif" alt="Encyclopédie" height="60" width="63" border="0"></a></td>
+		</tr>
+</table>
+<br><div id="CCMmenu"><table width="156">
+<tr><th>Attaques / Arnaques</th></tr>
+<tr><td><a class="mlink" href="attaques.htm">Piratage</a></td></tr>
+<tr><th><span class="rouge">Pirates</span></th></tr>
+<tr><td><a class="mlink" href="typologie-pirates.htm">Typologie de pirates</a></td></tr>
+<tr><td><a class="mlink" href="methodologie.htm">M&eacute;thodologie</a></td></tr>
+<tr><td><a class="mlink" href="exploits.htm">Exploits</a></td></tr>
+<tr><th><span class="rouge">Attaques cryptographiques</span></th></tr>
+<tr><td><a class="mlink" href="passwd.htm">Mot de passe</a></td></tr>
+<tr><td><a class="mlink" href="man-in-the-middle.htm">Man in the middle</a></td></tr>
+<tr><td><a class="mlink" href="rejeu.htm">Rejeu</a></td></tr>
+<tr><th><span class="rouge">D&eacute;ni de service</span></th></tr>
+<tr><td><a class="mlink" href="dos.htm">D&eacute;ni de service</a></td></tr>
+<tr><td><a class="mlink" href="attaque-smurf.htm">Attaque par r&eacute;flexion</a></td></tr>
+<tr><td><a class="mlink" href="attaque-ping-de-la-mort.htm">Ping de la mort</a></td></tr>
+<tr><td><a class="mlink" href="attaque-teardrop.htm">Fragmentation</a></td></tr>
+<tr><td><a class="mlink" href="attaque-land.htm">Land</a></td></tr>
+<tr><td><a class="mlink" href="attaque-syn.htm">SYN</a></td></tr>
+<tr><th><span class="rouge">Techniques</span></th></tr>
+<tr><td><a class="mlink" href="usurpation-ip-spoofing.htm">Usurpation d'adresse IP</a> (<a class="mlink" href="usurpation-ip-spoofing.htm">spoofing</a>)</td></tr>
+<tr><td><a class="mlink" href="vol-session-hijacking.htm">Vol de session</a> (<a class="mlink" href="vol-session-hijacking.htm">hijacking</a>)</td></tr>
+<tr><td><a class="mlink" href="arp-poisoning.htm">ARP poisoning</a></td></tr>
+<tr><td><a class="mlink" href="sniffers.htm">Ecoute r&eacute;seau</a> (<a class="mlink" href="sniffers.htm">sniffers</a>)</td></tr>
+<tr><td><a class="mlink" href="balayage-ports.htm">Balayage de ports</a> (<a class="mlink" href="balayage-ports.htm">Port scanning</a>)</td></tr>
+<tr><td><a class="mlink" href="buffer-overflow.htm">D&eacute;bordement de tampon</a> (<a class="mlink" href="buffer-overflow.htm">Buffer overflow</a>)</td></tr>
+<tr><td><a class="mlink" href="spam.htm">Spam</a></td></tr>
+<tr><td><a class="mlink" href="mailbombing.htm">Mail-bombing</a></td></tr>
+<tr><th><span class="rouge">Vuln&eacute;rabilit&eacute;s du web</span></th></tr>
+<tr><td><a class="mlink" href="attaques-web.htm">Attaques web</a></td></tr>
+<tr><td><a class="mlink" href="falsification-donnees.htm">Falsification de la saisie</a></td></tr>
+<tr><td><a class="mlink" href="manipulation-url.htm">Manipulation d'URL</a></td></tr>
+<tr><td><a class="mlink" href="cross-site-scripting.htm">Cross-Site Scripting</a></td></tr>
+<tr><td><a class="mlink" href="injection-commandes-sql.htm">Injection SQL</a></td></tr>
+<tr><th><span class="rouge">Arnaques</span></th></tr>
+<tr><td><a class="mlink" href="ingenierie-sociale.htm">Ing&eacute;nierie sociale</a> (<a class="mlink" href="ingenierie-sociale.htm">social engineering</a>)</td></tr>
+<tr><td><a class="mlink" href="scam.htm">Scam</a></td></tr>
+<tr><td><a class="mlink" href="phishing.htm">Phishing</a></td></tr>
+<tr><td><a class="mlink" href="loteries.htm">Loteries</a></td></tr>
+<tr><th><span class="rouge">Plus d'information</span></th></tr>
+<tr><td><a class="mlink" href="../virus/virus.htm">Virus</a></td></tr>
+<tr><td><a class="mlink" href="../virus/trojan.htm">Cheval de Troie</a></td></tr>
+<tr><td><a class="mlink" href="../virus/spywares.htm">Spyware</a></td></tr>
+<tr><td><a class="mlink" href="../virus/hoax.htm">Hoax</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/12-securite">FAQ s&eacute;curit&eacute;</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/156-internet">FAQ Internet</a></td></tr>
+</table></div>
+<hr>
+
+La plupart des attaques d'applications web consistent &agrave; solliciter le site avec
+des donn&eacute;es saisies manuellement afin de provoquer un contexte non pr&eacute;vu.
+
+<a name="parametres" class="ancre"></a><h2>Param&egrave;tres des applications web</h2>
+
+<p align="justify">Le <a href="../internet/http.htm">protocole HTTP</a>, support de la communication sur
+le web, permet de v&eacute;hiculer des param&egrave;tres sous formes de requ&ecirc;tes
+de plusieurs fa&ccedil;ons&nbsp;:
+<ul>
+<li><a href="../securite/cookies.htm">Cookies</a>&nbsp;;
+<li>Champs de <a href="../html/htmlform.htm">formulaires</a>&nbsp;;
+<li><a href="../internet/url.htm">URL</a>&nbsp;;
+<li><a href="../internet/http.htm">En-t&ecirc;tes HTTP</a>.
+</ul>
+
+<p align="justify">Il est essentiel de comprendre que tous ces moyens de transmission
+de donn&eacute;es peuvent &ecirc;tre manipul&eacute;s sans probl&egrave;me par un utilisateur
+et par cons&eacute;quent que <b>les donn&eacute;es utilisateurs ne doivent pas &ecirc;tre
+consid&eacute;r&eacute;es comme fiables</b>.
+De cette mani&egrave;re, il est impossible de baser la s&eacute;curit&eacute; sur
+des contr&ocirc;les r&eacute;alis&eacute; du c&ocirc;t&eacute; du client
+(valeurs propos&eacute;es par un formulaire HTML ou par codes
+Javascript v&eacute;rifiant l'exactitude des donn&eacute;es).
+
+<p align="justify">De plus, l'&eacute;tablissement d'une connexion <a href="../crypto/ssl.htm">SSL</a> ne
+prot&egrave;ge en rien contre la manipulation des donn&eacute;es transmises, elle
+ne fait que certifier la confidentialit&eacute; du transport de l'information entre
+l'utilisateur final et le site web.
+
+<p align="justify">Ainsi, tout concepteur d'application web doit n&eacute;cessairement
+effectuer un contr&ocirc;le des donn&eacute;es, tant sur leur <b>valeur</b>
+(minimum et maximum pour une donn&eacute;e num&eacute;rique, contr&ocirc;le des
+caract&egrave;res pour une cha&icirc;ne), que sur leur <b>type</b> et leur <b>longueur</b>.
+
+<!--
+
+<a name="caracteres" class="ancre"></a><h2>Caract&egrave;res sp&eacute;ciaux</h2>
+
+<p align="justify">
+-->
+
+<h2 id="sujets_sim">Trucs & astuces pertinents trouv&eacute;s dans la base de connaissances</h2><table class="simili"><tr class="sb">
+<td style="width:75px"><span class="">21/09&nbsp;09h56</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-3207-mythes-pc-infecte-dans-les-5-premieres-minutes-d-internet"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-3207-mythes-pc-infecte-dans-les-5-premieres-minutes-d-internet">PC infecté dans les 5 premières minutes d'Internet</a> (<a href="http://www.commentcamarche.net/faq/434-mythes-et-legendes">Mythes et légendes</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">21/09&nbsp;10h31</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-3140-mythes-mon-pc-n-interesse-pas-les-pirates"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-3140-mythes-mon-pc-n-interesse-pas-les-pirates">Mon PC n'intéresse pas les pirates</a> (<a href="http://www.commentcamarche.net/faq/434-mythes-et-legendes">Mythes et légendes</a>)</td>
+
+</tr>
+<tr class="sa"><td colspan="3" style="text-align:right"><img src="../images/plus.png" alt="Hacking" border="0"> Plus d'astuces sur &laquo;&nbsp;<a href="../astuces/hacking"><b>Hacking</b></a>&nbsp;&raquo;</td></tr></table><h2 id="discus_sim">Discussions pertinentes trouv&eacute;es dans le forum</h2><table class="simili"><tr class="sb">
+<td><span class="Dategris">03/06&nbsp;19h29</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1571870-hacking#2005-06-03%2020%3A55%3A16"><img src="../images/carrevalid.png" border="0" alt="hacking"></a><a href="http://www.commentcamarche.net/forum/affich-1571870-hacking">&nbsp;hacking</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">03/06&nbsp;20h55</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1571870-hacking#2005-06-03%2020%3A55%3A16">la&nbsp;princesse...</a></td><td style="text-align:center"><span class="Texte">6</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">22/04&nbsp;18h50</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-274270-le-hacking-est-il-une-bonne-ou-mauvaise-chose#2003-04-23%2017%3A14%3A27"><img src="../images/carreblock.gif" border="0" alt="hacking chose" title="La discussion a été fermée par un modérateur.
+Vous pouvez uniquement lire les discussions mais vous ne pouvez pas y répondre.
+"></a><a href="http://www.commentcamarche.net/forum/affich-274270-le-hacking-est-il-une-bonne-ou-mauvaise-chose">&nbsp;le hacking est-il une bonne ou mauvaise chose</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-11-windows">Windows</a></td>
+<td><span class="Date">23/04&nbsp;17h14</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-274270-le-hacking-est-il-une-bonne-ou-mauvaise-chose#2003-04-23%2017%3A14%3A27">Serge</a></td><td style="text-align:center"><span class="Texte">72</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">23/04&nbsp;15h53</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-275127-hacking-vs-cracking#2003-04-24%2022%3A29%3A48"><img src="../images/carre.gif" border="0" alt="hacking vs cracking"></a><a href="http://www.commentcamarche.net/forum/affich-275127-hacking-vs-cracking">&nbsp;hacking vs cracking</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-11-windows">Windows</a></td>
+<td><span class="Date">24/04&nbsp;22h29</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-275127-hacking-vs-cracking#2003-04-24%2022%3A29%3A48">smog</a></td><td style="text-align:center"><span class="Texte">56</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">05/06&nbsp;23h17</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-99571-hacking#2002-06-08%2001%3A52%3A40"><img src="../images/carre.gif" border="0" alt="hacking"></a><a href="http://www.commentcamarche.net/forum/affich-99571-hacking">&nbsp;Hacking</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-11-windows">Windows</a></td>
+<td><span class="Date">08/06&nbsp;01h52</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-99571-hacking#2002-06-08%2001%3A52%3A40">Xenor</a></td><td style="text-align:center"><span class="Texte">21</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">18/04&nbsp;15h07</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-676227-prof-de-hacking#2004-06-16%2016%3A31%3A17"><img src="../images/carre.gif" border="0" alt="prof hacking"></a><a href="http://www.commentcamarche.net/forum/affich-676227-prof-de-hacking">&nbsp;prof de hacking</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">16/06&nbsp;16h31</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-676227-prof-de-hacking#2004-06-16%2016%3A31%3A17">OCB</a></td><td style="text-align:center"><span class="Texte">20</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">13/12&nbsp;22h12</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-528553-hacking-msn#2004-04-16%2016%3A13%3A18"><img src="../images/carreblock.gif" border="0" alt="" title="La discussion a été fermée par un modérateur.
+Vous pouvez uniquement lire les discussions mais vous ne pouvez pas y répondre.
+"></a><a href="http://www.commentcamarche.net/forum/affich-528553-hacking-msn">&nbsp;hacking msn</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-8-actualites">Actualités</a></td>
+<td><span class="Date">16/04&nbsp;16h13</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-528553-hacking-msn#2004-04-16%2016%3A13%3A18">foobar47</a></td><td style="text-align:center"><span class="Texte">19</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">13/12&nbsp;22h43</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-528609-hacking-msn#2005-05-08%2017%3A57%3A42"><img src="../images/carreblock.gif" border="0" alt="hacking msn" title="La discussion a été fermée par un modérateur.
+Vous pouvez uniquement lire les discussions mais vous ne pouvez pas y répondre.
+"></a><a href="http://www.commentcamarche.net/forum/affich-528609-hacking-msn">&nbsp;hacking msn</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">08/05&nbsp;17h57</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-528609-hacking-msn#2005-05-08%2017%3A57%3A42">balltrap34</a></td><td style="text-align:center"><span class="Texte">18</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">07/05&nbsp;12h29</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-286684-solution-anti-hacking#2003-05-08%2000%3A31%3A50"><img src="../images/carre.gif" border="0" alt="solution anti hacking"></a><a href="http://www.commentcamarche.net/forum/affich-286684-solution-anti-hacking">&nbsp;Solution anti-hacking ?</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-11-windows">Windows</a></td>
+<td><span class="Date">08/05&nbsp;00h31</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-286684-solution-anti-hacking#2003-05-08%2000%3A31%3A50">ipl</a></td><td style="text-align:center"><span class="Texte">15</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">06/06&nbsp;19h01</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-313826-demande-d-un-bon-site-de-hacking#2003-06-06%2020%3A51%3A06"><img src="../images/carreblock.gif" border="0" alt="site hacking" title="La discussion a été fermée par un modérateur.
+Vous pouvez uniquement lire les discussions mais vous ne pouvez pas y répondre.
+"></a><a href="http://www.commentcamarche.net/forum/affich-313826-demande-d-un-bon-site-de-hacking">&nbsp;demande d'un bon site de hacking</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-24-webmastering">Webmastering</a></td>
+<td><span class="Date">06/06&nbsp;20h51</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-313826-demande-d-un-bon-site-de-hacking#2003-06-06%2020%3A51%3A06">Jeff</a></td><td style="text-align:center"><span class="Texte">14</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">06/04&nbsp;12h10</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2180706-piratage-et-hacking-mail#2006-05-16%2021%3A08%3A31"><img src="../images/carre.gif" border="0" alt="piratage hacking mail"></a><a href="http://www.commentcamarche.net/forum/affich-2180706-piratage-et-hacking-mail">&nbsp;Piratage et hacking mail</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">16/05&nbsp;21h08</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2180706-piratage-et-hacking-mail#2006-05-16%2021%3A08%3A31">Yoan</a></td><td style="text-align:center"><span class="Texte">13</span></td>
+</tr>
+	<tr class="sa">
+	<td colspan="2"><span class="Texte"><img src="../images/carreblock.gif" width="12" alt="" title="Discussion ferm&eacute;e">Discussion ferm&eacute;e
+    <img src="../images/carrevalid.png" width="12" alt="" title="Probl&egrave;me r&eacute;solu">Probl&egrave;me r&eacute;solu</span></td>
+	<td style="vertical-align:top;text-align:right;" colspan="3"><img src="../images/plus.png" alt="Hacking" border="0"> Plus de discussions sur &laquo;&nbsp;<a href="http://www.commentcamarche.net/f/hacking"><b>Hacking</b></a>&nbsp;&raquo;</td></tr></table>
+<br><span class="Footer">Ce document intitul&eacute; &laquo;&nbsp;<a href="http://www.commentcamarche.net/attaques/falsification-donnees.php3">Attaques - Falsification des donn&eacute;es HTTP</a>&nbsp;&raquo; issu de l'<a href="http://www.commentcamarche.net/encyclopedie/">encyclop&eacute;die</a> <a href="http://www.commentcamarche.net/informatique/informatique.php3">informatique</a> <a href="http://www.commentcamarche.net">Comment &Ccedil;a Marche</a> (<a href="http://www.commentcamarche.net/">www.commentcamarche.net</a>) est mis &agrave; disposition sous les termes de la licence <a href="../ccmguide/ccmlicence.htm">Creative Commons</a>.
+Vous pouvez copier, modifier des copies de cette page, dans les conditions fix&eacute;es par la licence, tant que cette note appara&icirc;t clairement.</span>
+<br>&nbsp;
+<center><a href="attaques-web.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a>
+<a href="manipulation-url.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></center>
+</div>
+
+</td>
+</tr>
+
+<tr><th colspan="4" style="background-color:#CED7F6">&nbsp;</th></tr>
+</table>
+<div id="footer"><br><a href="../ccmguide/ccmintro.htm"><b>A propos</b></a> | <a href="../ccmguide/cgu-conditions-generales.htm"><b>Conditions g&eacute;n&eacute;rales</b></a>  | &copy; Tous droits r&eacute;serv&eacute;s 2007 <a href="http://www.commentcamarche.net">Quidéa</a>
+</div>
+</body>
+</html>

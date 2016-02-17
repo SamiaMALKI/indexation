@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="copyright" content="1998 by Jean-François Pillou">
+<META NAME="ROBOTS" content="all">
+<META NAME="author" content="Jean-François Pillou">
+<META NAME="subject" content="Comment ça marche? [Les Scanners]">
+<META NAME="topic" content="Port scanner">
+<META NAME="keywords" content="Attaques distantes,scanner,scanners,Scanners, Balayage de ports, Scanner r&eacute;seau, Scanner de vuln&eacute;rabilit&eacute;s, analyseur de r&eacute;seaux, analyseur de reseaux">
+<META NAME="title" content="Attaques - Balayage de ports (scanners de vuln&eacute;rabilit&eacute;s)">
+<title>Les scanners de vuln&eacute;rabilit&eacute;s - Balayage de ports</title>
+<link rel="stylesheet" href="../ccm.css" type="text/css">
+
+
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute; informatique" href="http://www.commentcamarche.net/rss/actualite.php3">
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute;s du site CommentCaMarche.net" href="http://www.commentcamarche.net/rss/rss.php3">
+</head>
+
+<body>
+<table class="ccmmain">
+<tr>
+<td height="1" width="170"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="540"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="12"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="10"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+</tr>
+
+<tr>
+<td colspan="2" bgcolor="#AEBFE2" style="vertical-align:top;text-align:left;height:46;background-color:#AEBFE2;">
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td style="vertical-align:top;"><a href="../index.htm" target="_top"><img src="../images/logotop.png" border="0" width="328" height="42" title="Comment Ca Marche - Communaut&eacute; informatique" alt="Comment Ca Marche - Communaut&eacute; informatique"></a></td>
+    <td style="width:30px">&nbsp;</td>
+    <td style="vertical-align:middle;text-align:left"></td></tr>
+</table>
+</td>
+<td style="background-color: #AEBFE2; vertical-align:bottom;">&nbsp;</td>
+<td style="background-color: #AEBFE2;">&nbsp;</td>
+</tr>
+
+<tr>
+<td bgcolor="#8EA6D6"><div id="ccmicons"><a href="../index.htm"  ><img src="../images/icohome2.gif" name="icohome" alt="Accueil - Encyclop&eacute;die informatique" title="Accueil - Encyclop&eacute;die informatique" width="24" border="0"></a><a href="http://www.commentcamarche.net/encyclopedie"  ><img src="../images/icozip2.gif" name="icozip" alt="T&eacute;l&eacute;charger l'encyclop&eacute;die" title="T&eacute;l&eacute;charger l'encyclop&eacute;die" width="24" border="0"></a><a href="http://www.commentcamarche.net/ccmbugs/?Bug_url=%2Fattaques%2Fbalayage-ports.php3#ecrire"  ><img src="../images/icowri2.gif" name="icowri" alt="Contribuer &agrave; cet article" width="24" border="0"></a><a href="http://www.commentcamarche.net/contact/"  ><img src="../images/icomail2.gif" name="icomail" alt="" title="Ecrire &agrave; Jean-Francois Pillou" width="24"  border="0"></a></div></td>
+<td colspan="3" bgcolor="#8EA6D6"></td>
+</tr>
+
+<tr>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1" rowspan="2"><img src="../images/pixel_white.png" height="1" width="12" alt=""></td>
+
+<td bgcolor="#FFFFFF" height="100%" valign="top" rowspan="2">
+</td>
+</tr>
+
+<tr><td valign="top" colspan="3"><div id="contenu"><h1> Attaques - Balayage de ports (scanners de vuln&eacute;rabilit&eacute;s)</h1><table border="0" cellpadding="0" cellspacing="0" width="722">
+	<tr>
+		<td><img src="images/balayage-ports.png" alt="Balayage de ports"></td>
+		<td valign="top" width="38"><a href="sniffers.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a></td>
+				<td valign="top" width="63"><a href="../index.htm"><img src="../images/logoPClw.gif" alt="Encyclopédie" height="60" width="63" border="0"></a></td>
+		</tr>
+</table>
+<br><div id="CCMmenu"><table width="156">
+<tr><th>Attaques / Arnaques</th></tr>
+<tr><td><a class="mlink" href="attaques.htm">Piratage</a></td></tr>
+<tr><th><span class="rouge">Pirates</span></th></tr>
+<tr><td><a class="mlink" href="typologie-pirates.htm">Typologie de pirates</a></td></tr>
+<tr><td><a class="mlink" href="methodologie.htm">M&eacute;thodologie</a></td></tr>
+<tr><td><a class="mlink" href="exploits.htm">Exploits</a></td></tr>
+<tr><th><span class="rouge">Attaques cryptographiques</span></th></tr>
+<tr><td><a class="mlink" href="passwd.htm">Mot de passe</a></td></tr>
+<tr><td><a class="mlink" href="man-in-the-middle.htm">Man in the middle</a></td></tr>
+<tr><td><a class="mlink" href="rejeu.htm">Rejeu</a></td></tr>
+<tr><th><span class="rouge">D&eacute;ni de service</span></th></tr>
+<tr><td><a class="mlink" href="dos.htm">D&eacute;ni de service</a></td></tr>
+<tr><td><a class="mlink" href="attaque-smurf.htm">Attaque par r&eacute;flexion</a></td></tr>
+<tr><td><a class="mlink" href="attaque-ping-de-la-mort.htm">Ping de la mort</a></td></tr>
+<tr><td><a class="mlink" href="attaque-teardrop.htm">Fragmentation</a></td></tr>
+<tr><td><a class="mlink" href="attaque-land.htm">Land</a></td></tr>
+<tr><td><a class="mlink" href="attaque-syn.htm">SYN</a></td></tr>
+<tr><th><span class="rouge">Techniques</span></th></tr>
+<tr><td><a class="mlink" href="usurpation-ip-spoofing.htm">Usurpation d'adresse IP</a> (<a class="mlink" href="usurpation-ip-spoofing.htm">spoofing</a>)</td></tr>
+<tr><td><a class="mlink" href="vol-session-hijacking.htm">Vol de session</a> (<a class="mlink" href="vol-session-hijacking.htm">hijacking</a>)</td></tr>
+<tr><td><a class="mlink" href="arp-poisoning.htm">ARP poisoning</a></td></tr>
+<tr><td><a class="mlink" href="sniffers.htm">Ecoute r&eacute;seau</a> (<a class="mlink" href="sniffers.htm">sniffers</a>)</td></tr>
+<tr><td><a class="mlink" href="balayage-ports.htm">Balayage de ports</a> (<a class="mlink" href="balayage-ports.htm">Port scanning</a>)</td></tr>
+<tr><td><a class="mlink" href="buffer-overflow.htm">D&eacute;bordement de tampon</a> (<a class="mlink" href="buffer-overflow.htm">Buffer overflow</a>)</td></tr>
+<tr><td><a class="mlink" href="spam.htm">Spam</a></td></tr>
+<tr><td><a class="mlink" href="mailbombing.htm">Mail-bombing</a></td></tr>
+<tr><th><span class="rouge">Vuln&eacute;rabilit&eacute;s du web</span></th></tr>
+<tr><td><a class="mlink" href="attaques-web.htm">Attaques web</a></td></tr>
+<tr><td><a class="mlink" href="falsification-donnees.htm">Falsification de la saisie</a></td></tr>
+<tr><td><a class="mlink" href="manipulation-url.htm">Manipulation d'URL</a></td></tr>
+<tr><td><a class="mlink" href="cross-site-scripting.htm">Cross-Site Scripting</a></td></tr>
+<tr><td><a class="mlink" href="injection-commandes-sql.htm">Injection SQL</a></td></tr>
+<tr><th><span class="rouge">Arnaques</span></th></tr>
+<tr><td><a class="mlink" href="ingenierie-sociale.htm">Ing&eacute;nierie sociale</a> (<a class="mlink" href="ingenierie-sociale.htm">social engineering</a>)</td></tr>
+<tr><td><a class="mlink" href="scam.htm">Scam</a></td></tr>
+<tr><td><a class="mlink" href="phishing.htm">Phishing</a></td></tr>
+<tr><td><a class="mlink" href="loteries.htm">Loteries</a></td></tr>
+<tr><th><span class="rouge">Plus d'information</span></th></tr>
+<tr><td><a class="mlink" href="../virus/virus.htm">Virus</a></td></tr>
+<tr><td><a class="mlink" href="../virus/trojan.htm">Cheval de Troie</a></td></tr>
+<tr><td><a class="mlink" href="../virus/spywares.htm">Spyware</a></td></tr>
+<tr><td><a class="mlink" href="../virus/hoax.htm">Hoax</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/12-securite">FAQ s&eacute;curit&eacute;</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/156-internet">FAQ Internet</a></td></tr>
+</table></div><hr>
+
+
+
+<a name="scanner" class="ancre"></a><h2>Le balayage de ports</h2>
+
+<p align="justify">Un &laquo;&nbsp;<b>scanner de vuln&eacute;rabilit&eacute;</b>&nbsp;&raquo; (parfois appel&eacute; &laquo;&nbsp;<i>analyseur de r&eacute;seaux</i>&nbsp;&raquo;) est un utilitaire permettant de
+r&eacute;aliser un audit de s&eacute;curit&eacute; d'un r&eacute;seau en effectuant
+un balayage des <a href="../internet/port.htm">ports</a> ouverts (en anglais <i>port scanning</i>) sur une machine donn&eacute;e ou sur un r&eacute;seau tout entier.
+Le balayage se fait gr&acirc;ce &agrave; des sondes (requ&ecirc;tes) permettant de
+d&eacute;terminer les services fonctionnant sur un h&ocirc;te distant.
+
+<p align="justify">Un tel outil permet de d&eacute;terminer les risques en mati&egrave;re de s&eacute;curit&eacute;.
+Il est g&eacute;n&eacute;ralement possible avec ce type d'outil de lancer une analyse sur une plage
+ou une liste d'<a href="../internet/ip.htm">adresses IP</a> afin de cartographier enti&egrave;rement un r&eacute;seau.
+
+
+<a name="utilite" class="ancre"></a><h2>Fonctionnement d'un scanner</h2>
+
+<p align="justify">Un scanner de vuln&eacute;rabilit&eacute; est capable de d&eacute;terminer les ports ouverts sur un syst&egrave;me en envoyant
+des requ&ecirc;tes successives sur les diff&eacute;rents ports et analyse les r&eacute;ponses
+afin de d&eacute;terminer lesquels sont actifs.
+
+<p align="justify">En analysant tr&egrave;s finement la structure des paquets <a href="../internet/tcpip.htm">TCP/IP</a>
+re&ccedil;us, les scanners de s&eacute;curit&eacute; &eacute;volu&eacute;s sont parfois capables de d&eacute;terminer le <a href="../systemes/sysintro.htm">syst&egrave;me d'exploitation</a>
+de la machine distante ainsi que les versions des applications associ&eacute;es aux ports et, le cas &eacute;ch&eacute;ant, de conseiller les mises &agrave; jour
+n&eacute;cessaires, on parle ainsi de caract&eacute;risation de version.
+
+<p align="justify">On distingue habituellement deux m&eacute;thodes&nbsp;:
+<ul>
+<li>L'<b>acquisition active d'informations</b> consistant &agrave; envoyer un grand
+nombre de paquets poss&eacute;dant des en-t&ecirc;tes caract&eacute;ristiques et la plupart
+du temps non conformes aux recommandations et &agrave; analyser les r&eacute;ponses afin
+de d&eacute;terminer la version de l'application utilis&eacute;e. En effet, chaque application
+impl&eacute;mente les protocoles d'une fa&ccedil;on l&eacute;g&egrave;rement diff&eacute;rente,
+ce qui permet de les distinguer. </li>
+<li>L'<b>acquisition passive d'informations</b> (parfois <i>balayage passif</i> ou <i>scan non intrusif</i>) est beaucoup moins intrusive et risque
+donc moins d'&ecirc;tre d&eacute;tect&eacute; par un <a href="../detection/ids.htm">syst&egrave;me
+de d&eacute;tection d'intrusions</a>. Son principe de fonctionnement est proche, si ce n'est qu'il
+consiste &agrave; analyser les champs des datagrammes IP circulant sur un r&eacute;seau, &agrave; l'aide
+d'un <a href="sniffers.htm">sniffer</a>. La caract&eacute;risation de version passive analyse l'&eacute;volution
+des valeurs des champs sur des s&eacute;ries de fragments, ce qui implique un temps d'analyse
+beaucoup plus long. Ce type d'analyse est ainsi tr&egrave;s difficile voire impossible
+&agrave; d&eacute;tecter.</li>
+</ul>
+
+<a name="utilite" class="ancre"></a><h2>Utilit&eacute; d'un scanner</h2>
+
+<p align="justify">Les scanners de s&eacute;curit&eacute; sont des outils tr&egrave;s utiles pour les administrateurs syst&egrave;me
+et r&eacute;seau afin de surveiller la s&eacute;curit&eacute; du parc informatique dont ils ont la charge.
+
+<p align="justify">A contrario, cet outil est parfois utilis&eacute; par des pirates informatiques afin de d&eacute;terminer
+les br&egrave;ches d'un syst&egrave;me.
+
+
+<a name="plus" class="ancre"></a><h2>Plus d'informations</h2>
+<ul>
+<li><a href="http://www.nessus.org/" target="_blank">Nessus</a>
+<li><a href="http://www.nmap.org" target="_blank">Nmap (&quot;Network Mapper&quot;)</a> - Utilitaire libre d'audits de s&eacute;curit&eacute; et d'exploration des r&eacute;seaux
+<li><a href="http://www.insecure.org/nmap/nmap_doc.html" target="_blank">The Art of Port Scanning
+</a> par Fyodor
+</ul>
+
+<h2 id="sujets_sim">Trucs & astuces pertinents trouv&eacute;s dans la base de connaissances</h2><table class="simili"><tr class="sb">
+<td style="width:75px"><span class="">13/02&nbsp;00h37</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-127-suivi-de-ports-port-mapping-forwarding"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-127-suivi-de-ports-port-mapping-forwarding">Suivi de ports (Port Mapping/forwarding)</a> (<a href="http://www.commentcamarche.net/faq/11-reseaux">Réseaux</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">20/01&nbsp;21h16</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-1731-windows-xp-utiliser-le-scanner-sans-redemarrer-windows"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-1731-windows-xp-utiliser-le-scanner-sans-redemarrer-windows">Utiliser le scanner sans redémarrer Windows</a> (<a href="http://www.commentcamarche.net/faq/3-materiel">Matériel</a>)</td>
+
+</tr>
+<tr class="sb">
+<td style="width:75px"><span class="Date">14/02&nbsp;21h50</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-2940-utiliser-l-outil-de-suppression-des-logiciels-malveillants"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-2940-utiliser-l-outil-de-suppression-des-logiciels-malveillants">Utiliser l'outil de suppression des logiciels malveillants</a> (<a href="http://www.commentcamarche.net/faq/137-virus">Virus</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">21/06&nbsp;10h35</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-654-partager-un-scanner-unix-en-reseau"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-654-partager-un-scanner-unix-en-reseau">Partager un scanner unix* en réseau</a> (<a href="http://www.commentcamarche.net/faq/8-bureautique">Bureautique</a>)</td>
+
+</tr>
+<tr class="sb">
+<td style="width:75px"><span class="Date">02/01&nbsp;12h30</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-1113-linux-installation-d-un-scanner-usb-sous-mandrake-10-1"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-1113-linux-installation-d-un-scanner-usb-sous-mandrake-10-1">Installation d'un scanner USB sous Mandrake 10.1</a> (<a href="http://www.commentcamarche.net/faq/97-linux">Linux</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">16/05&nbsp;01h12</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-223-windows-98-me-driver-scanner-hp-version1-1"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-223-windows-98-me-driver-scanner-hp-version1-1">Windows 98 ME: driver scanner HP (version1.1)</a> (<a href="http://www.commentcamarche.net/faq/146-windows-98">Windows 98</a>)</td>
+
+</tr>
+<tr class="sa"><td colspan="3" style="text-align:right"><img src="../images/plus.png" alt="Port scanner" border="0"> Plus d'astuces sur &laquo;&nbsp;<a href="../astuces/port-scanner"><b>Port scanner</b></a>&nbsp;&raquo;</td></tr></table><h2 id="discus_sim">Discussions pertinentes trouv&eacute;es dans le forum</h2><table class="simili"><tr class="sb">
+<td><span class="Dategris">09/05&nbsp;20h41</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1508094-port-tt-le-temps-scanne#2005-05-09%2022%3A51%3A10"><img src="../images/carrevalid.png" border="0" alt="port temps scanné"></a><a href="http://www.commentcamarche.net/forum/affich-1508094-port-tt-le-temps-scanne">&nbsp;port tt le temps scanné</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">09/05&nbsp;22h51</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-1508094-port-tt-le-temps-scanne#2005-05-09%2022%3A51%3A10">bernie61</a></td><td style="text-align:center"><span class="Texte">1</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Date">21/02&nbsp;10h18</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2695949-scanning-firewall-port-ouverts#2007-02-21%2014%3A45%3A13"><img src="../images/carre.gif" border="0" alt="scanning firewall port ouverts"></a><a href="http://www.commentcamarche.net/forum/affich-2695949-scanning-firewall-port-ouverts">&nbsp;[Scanning Firewall]... port ouverts</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">21/02&nbsp;14h45</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-2695949-scanning-firewall-port-ouverts#2007-02-21%2014%3A45%3A13">Wolfy</a></td><td style="text-align:center"><span class="Texte">5</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">20/01&nbsp;14h51</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-203333-probleme-de-scanner-sur-port-usb#2003-01-20%2019%3A35%3A37"><img src="../images/carre.gif" border="0" alt="scanner port usb"></a><a href="http://www.commentcamarche.net/forum/affich-203333-probleme-de-scanner-sur-port-usb">&nbsp;probleme de scanner sur port usb</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-2-materiel-hardware">Matériel (hardware)</a></td>
+<td><span class="Date">20/01&nbsp;19h35</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-203333-probleme-de-scanner-sur-port-usb#2003-01-20%2019%3A35%3A37">johan24</a></td><td style="text-align:center"><span class="Texte">4</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Date">29/10&nbsp;14h05</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2446168-port-scanne#2006-11-01%2017%3A22%3A05"><img src="../images/carre.gif" border="0" alt="port scanné"></a><a href="http://www.commentcamarche.net/forum/affich-2446168-port-scanne">&nbsp;port scanné</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">01/11&nbsp;17h22</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2446168-port-scanne#2006-11-01%2017%3A22%3A05">Kristopher</a></td><td style="text-align:center"><span class="Texte">4</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">24/10&nbsp;17h02</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-452782-ajout-scanner-ac-carte-port-isa-ss-xp#2003-10-24%2018%3A54%3A06"><img src="../images/carre.gif" border="0" alt="ajout scanner ac carte port isa ss xp"></a><a href="http://www.commentcamarche.net/forum/affich-452782-ajout-scanner-ac-carte-port-isa-ss-xp">&nbsp;ajout scanner ac carte port isa ss XP</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-2-materiel-hardware">Matériel (hardware)</a></td>
+<td><span class="Date">24/10&nbsp;18h54</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-452782-ajout-scanner-ac-carte-port-isa-ss-xp#2003-10-24%2018%3A54%3A06">hiphop.soldiaz</a></td><td style="text-align:center"><span class="Texte">3</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">29/10&nbsp;12h37</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-458330-carte-scsi-sur-port-pci-pour-scanner#2003-10-29%2021%3A26%3A29"><img src="../images/carre.gif" border="0" alt="carte scsi port pci scanner"></a><a href="http://www.commentcamarche.net/forum/affich-458330-carte-scsi-sur-port-pci-pour-scanner">&nbsp;carte scsi sur port pci pour scanner</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-2-materiel-hardware">Matériel (hardware)</a></td>
+<td><span class="Date">29/10&nbsp;21h26</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-458330-carte-scsi-sur-port-pci-pour-scanner#2003-10-29%2021%3A26%3A29">patch</a></td><td style="text-align:center"><span class="Texte">3</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">03/07&nbsp;10h23</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-853586-probleme-de-scanner-port-usb#2004-07-04%2007%3A47%3A27"><img src="../images/carre.gif" border="0" alt="scanner port usb"></a><a href="http://www.commentcamarche.net/forum/affich-853586-probleme-de-scanner-port-usb">&nbsp;Problème de scanner-port USB</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-11-windows">Windows</a></td>
+<td><span class="Date">04/07&nbsp;07h47</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-853586-probleme-de-scanner-port-usb#2004-07-04%2007%3A47%3A27">DUGEON</a></td><td style="text-align:center"><span class="Texte">2</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">02/05&nbsp;10h18</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-8224-scanner-de-port#2001-05-02%2020%3A00%3A49"><img src="../images/carre.gif" border="0" alt="scanner port"></a><a href="http://www.commentcamarche.net/forum/affich-8224-scanner-de-port">&nbsp;scanner de port !!!</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-11-windows">Windows</a></td>
+<td><span class="Date">02/05&nbsp;20h00</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-8224-scanner-de-port#2001-05-02%2020%3A00%3A49">Jeff</a></td><td style="text-align:center"><span class="Texte">1</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">25/02&nbsp;18h38</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-61910-erreur-de-scanner-sur-port-usb#2002-02-25%2022%3A31%3A54"><img src="../images/carre.gif" border="0" alt="scanner port usb"></a><a href="http://www.commentcamarche.net/forum/affich-61910-erreur-de-scanner-sur-port-usb">&nbsp;Erreur de scanner sur port USB</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-11-windows">Windows</a></td>
+<td><span class="Date">25/02&nbsp;22h31</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-61910-erreur-de-scanner-sur-port-usb#2002-02-25%2022%3A31%3A54">moimeme</a></td><td style="text-align:center"><span class="Texte">1</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">06/03&nbsp;14h04</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-596016-scanner-port-parrallele-gros-pb#2004-09-15%2009%3A38%3A19"><img src="../images/carre.gif" border="0" alt="scanner port parrallele"></a><a href="http://www.commentcamarche.net/forum/affich-596016-scanner-port-parrallele-gros-pb">&nbsp;Scanner port parrallele gros pb!</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-13-linux-unix">Linux/Unix</a></td>
+<td><span class="Date">15/09&nbsp;09h38</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-596016-scanner-port-parrallele-gros-pb#2004-09-15%2009%3A38%3A19">Kxpunisher</a></td><td style="text-align:center"><span class="Texte">1</span></td>
+</tr>
+	<tr class="sa">
+	<td colspan="2"><span class="Texte"><img src="../images/carreblock.gif" width="12" alt="" title="Discussion ferm&eacute;e">Discussion ferm&eacute;e
+    <img src="../images/carrevalid.png" width="12" alt="" title="Probl&egrave;me r&eacute;solu">Probl&egrave;me r&eacute;solu</span></td>
+	<td style="vertical-align:top;text-align:right;" colspan="3"><img src="../images/plus.png" alt="Port scanner" border="0"> Plus de discussions sur &laquo;&nbsp;<a href="http://www.commentcamarche.net/f/port-scanner"><b>Port scanner</b></a>&nbsp;&raquo;</td></tr></table>
+<br><span class="Footer">Ce document intitul&eacute; &laquo;&nbsp;<a href="http://www.commentcamarche.net/attaques/balayage-ports.php3">Attaques - Balayage de ports (scanners de vuln&eacute;rabilit&eacute;s)</a>&nbsp;&raquo; issu de l'<a href="http://www.commentcamarche.net/encyclopedie/">encyclop&eacute;die</a> <a href="http://www.commentcamarche.net/informatique/informatique.php3">informatique</a> <a href="http://www.commentcamarche.net">Comment &Ccedil;a Marche</a> (<a href="http://www.commentcamarche.net/">www.commentcamarche.net</a>) est mis &agrave; disposition sous les termes de la licence <a href="../ccmguide/ccmlicence.htm">Creative Commons</a>.
+Vous pouvez copier, modifier des copies de cette page, dans les conditions fix&eacute;es par la licence, tant que cette note appara&icirc;t clairement.</span>
+<br>&nbsp;
+<center><a href="sniffers.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a>
+</center>
+</div>
+
+</td>
+</tr>
+
+<tr><th colspan="4" style="background-color:#CED7F6">&nbsp;</th></tr>
+</table>
+<div id="footer"><br><a href="../ccmguide/ccmintro.htm"><b>A propos</b></a> | <a href="../ccmguide/cgu-conditions-generales.htm"><b>Conditions g&eacute;n&eacute;rales</b></a>  | &copy; Tous droits r&eacute;serv&eacute;s 2007 <a href="http://www.commentcamarche.net">Quidéa</a>
+</div>
+</body>
+</html>

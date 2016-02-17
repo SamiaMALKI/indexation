@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="copyright" content="2005 by Jean-François Pillou">
+<META NAME="ROBOTS" content="all">
+<META NAME="author" content="Jean-François Pillou">
+<META NAME="subject" content="Comment ça marche? [Le Spamming]">
+<META NAME="topic" content="Spam">
+<META NAME="keywords" content="Spam, Spammer, Spammers, Spammeur, Spammeurs, Spamming, Pollupostage, Pourriel, multipostage abusif, envoi massif de courriel, BreidBart, antispam, anti-spam, courrier ind&eacute;sirable, ind&eacute;sirables, message non sollicit&eacute;">
+<META NAME="title" content="Attaques - Spam (pollupostage)">
+<title>Spam (pollupostage)</title>
+<link rel="stylesheet" href="../ccm.css" type="text/css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute; informatique" href="http://www.commentcamarche.net/rss/actualite.php3">
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute;s du site CommentCaMarche.net" href="http://www.commentcamarche.net/rss/rss.php3">
+</head>
+
+
+<body>
+
+<table class="ccmmain">
+<tr>
+<td height="1" width="170"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="540"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="12"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="10"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+</tr>
+
+<tr>
+<td colspan="2" bgcolor="#AEBFE2" style="vertical-align:top;text-align:left;height:46;background-color:#AEBFE2;">
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td style="vertical-align:top;"><a href="../index.htm" target="_top"><img src="../images/logotop.png" border="0" width="328" height="42" title="Comment Ca Marche - Communaut&eacute; informatique" alt="Comment Ca Marche - Communaut&eacute; informatique"></a></td>
+    <td style="width:30px">&nbsp;</td>
+    <td style="vertical-align:middle;text-align:left"></td></tr>
+</table>
+</td>
+<td style="background-color: #AEBFE2; vertical-align:bottom;">&nbsp;</td>
+<td style="background-color: #AEBFE2;">&nbsp;</td>
+</tr>
+
+<tr>
+<td bgcolor="#8EA6D6"><div id="ccmicons"><a href="../index.htm"  ><img src="../images/icohome2.gif" name="icohome" alt="Accueil - Encyclop&eacute;die informatique" title="Accueil - Encyclop&eacute;die informatique" width="24" border="0"></a><a href="http://www.commentcamarche.net/encyclopedie"  ><img src="../images/icozip2.gif" name="icozip" alt="T&eacute;l&eacute;charger l'encyclop&eacute;die" title="T&eacute;l&eacute;charger l'encyclop&eacute;die" width="24" border="0"></a><a href="http://www.commentcamarche.net/ccmbugs/?Bug_url=%2Fattaques%2Fspam.php3#ecrire"  ><img src="../images/icowri2.gif" name="icowri" alt="Contribuer &agrave; cet article" width="24" border="0"></a><a href="http://www.commentcamarche.net/contact/"  ><img src="../images/icomail2.gif" name="icomail" alt="" title="Ecrire &agrave; Jean-Francois Pillou" width="24"  border="0"></a></div></td>
+<td colspan="3" bgcolor="#8EA6D6"></td>
+</tr>
+
+<tr>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1" rowspan="2"><img src="../images/pixel_white.png" height="1" width="12" alt=""></td>
+
+<td bgcolor="#FFFFFF" height="100%" valign="top" rowspan="2">
+</td>
+</tr>
+
+<tr><td valign="top" colspan="3"><div id="contenu"><h1> Attaques - Spam (pollupostage)</h1><table border="0" cellpadding="0" cellspacing="0" width="722">
+	<tr>
+		<td><img src="images/spam.png" alt="Spam"></td>
+		<td valign="top" width="38"><a href="buffer-overflow.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a></td>
+		<td valign="top" width="38"><a href="mailbombing.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></td>		<td valign="top" width="63"><a href="../index.htm"><img src="../images/logoPClw.gif" alt="Encyclopédie" height="60" width="63" border="0"></a></td>
+		</tr>
+</table>
+<br><div id="CCMmenu"><table width="156">
+<tr><th>Attaques / Arnaques</th></tr>
+<tr><td><a class="mlink" href="attaques.htm">Piratage</a></td></tr>
+<tr><th><span class="rouge">Pirates</span></th></tr>
+<tr><td><a class="mlink" href="typologie-pirates.htm">Typologie de pirates</a></td></tr>
+<tr><td><a class="mlink" href="methodologie.htm">M&eacute;thodologie</a></td></tr>
+<tr><td><a class="mlink" href="exploits.htm">Exploits</a></td></tr>
+<tr><th><span class="rouge">Attaques cryptographiques</span></th></tr>
+<tr><td><a class="mlink" href="passwd.htm">Mot de passe</a></td></tr>
+<tr><td><a class="mlink" href="man-in-the-middle.htm">Man in the middle</a></td></tr>
+<tr><td><a class="mlink" href="rejeu.htm">Rejeu</a></td></tr>
+<tr><th><span class="rouge">D&eacute;ni de service</span></th></tr>
+<tr><td><a class="mlink" href="dos.htm">D&eacute;ni de service</a></td></tr>
+<tr><td><a class="mlink" href="attaque-smurf.htm">Attaque par r&eacute;flexion</a></td></tr>
+<tr><td><a class="mlink" href="attaque-ping-de-la-mort.htm">Ping de la mort</a></td></tr>
+<tr><td><a class="mlink" href="attaque-teardrop.htm">Fragmentation</a></td></tr>
+<tr><td><a class="mlink" href="attaque-land.htm">Land</a></td></tr>
+<tr><td><a class="mlink" href="attaque-syn.htm">SYN</a></td></tr>
+<tr><th><span class="rouge">Techniques</span></th></tr>
+<tr><td><a class="mlink" href="usurpation-ip-spoofing.htm">Usurpation d'adresse IP</a> (<a class="mlink" href="usurpation-ip-spoofing.htm">spoofing</a>)</td></tr>
+<tr><td><a class="mlink" href="vol-session-hijacking.htm">Vol de session</a> (<a class="mlink" href="vol-session-hijacking.htm">hijacking</a>)</td></tr>
+<tr><td><a class="mlink" href="arp-poisoning.htm">ARP poisoning</a></td></tr>
+<tr><td><a class="mlink" href="sniffers.htm">Ecoute r&eacute;seau</a> (<a class="mlink" href="sniffers.htm">sniffers</a>)</td></tr>
+<tr><td><a class="mlink" href="balayage-ports.htm">Balayage de ports</a> (<a class="mlink" href="balayage-ports.htm">Port scanning</a>)</td></tr>
+<tr><td><a class="mlink" href="buffer-overflow.htm">D&eacute;bordement de tampon</a> (<a class="mlink" href="buffer-overflow.htm">Buffer overflow</a>)</td></tr>
+<tr><td><a class="mlink" href="spam.htm">Spam</a></td></tr>
+<tr><td><a class="mlink" href="mailbombing.htm">Mail-bombing</a></td></tr>
+<tr><th><span class="rouge">Vuln&eacute;rabilit&eacute;s du web</span></th></tr>
+<tr><td><a class="mlink" href="attaques-web.htm">Attaques web</a></td></tr>
+<tr><td><a class="mlink" href="falsification-donnees.htm">Falsification de la saisie</a></td></tr>
+<tr><td><a class="mlink" href="manipulation-url.htm">Manipulation d'URL</a></td></tr>
+<tr><td><a class="mlink" href="cross-site-scripting.htm">Cross-Site Scripting</a></td></tr>
+<tr><td><a class="mlink" href="injection-commandes-sql.htm">Injection SQL</a></td></tr>
+<tr><th><span class="rouge">Arnaques</span></th></tr>
+<tr><td><a class="mlink" href="ingenierie-sociale.htm">Ing&eacute;nierie sociale</a> (<a class="mlink" href="ingenierie-sociale.htm">social engineering</a>)</td></tr>
+<tr><td><a class="mlink" href="scam.htm">Scam</a></td></tr>
+<tr><td><a class="mlink" href="phishing.htm">Phishing</a></td></tr>
+<tr><td><a class="mlink" href="loteries.htm">Loteries</a></td></tr>
+<tr><th><span class="rouge">Plus d'information</span></th></tr>
+<tr><td><a class="mlink" href="../virus/virus.htm">Virus</a></td></tr>
+<tr><td><a class="mlink" href="../virus/trojan.htm">Cheval de Troie</a></td></tr>
+<tr><td><a class="mlink" href="../virus/spywares.htm">Spyware</a></td></tr>
+<tr><td><a class="mlink" href="../virus/hoax.htm">Hoax</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/12-securite">FAQ s&eacute;curit&eacute;</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/156-internet">FAQ Internet</a></td></tr>
+</table></div>
+<hr>
+
+<a name="intro" class="ancre"></a><h2>Introduction au spam</h2>
+
+<p align="justify">Depuis que le World Wide Web existe, les ressources se sont d&eacute;mocratis&eacute;es
+et le flux d'informations circulant sur le r&eacute;seau des r&eacute;seaux n'a cess&eacute;
+
+d'augmenter. Cependant le contenu de ces informations n'a pas toujours &eacute;volu&eacute;
+
+dans le bon sens et de nombreuses personnes ont vite compris comment se servir abusivement de ces ressources.
+
+<p align="justify">On appelle &laquo;&nbsp;<b>spam</b>&nbsp;&raquo; ou &laquo;&nbsp;<b>pollupostage</b>&nbsp;&raquo; (les termes <i>pourriel</i>, <i>courrier ind&eacute;sirable</i> ou <i>junk mail</i> sont parfois &eacute;galement utilis&eacute;s)
+l'envoi massif de courrier &eacute;lectronique &agrave; des destinataires ne l'ayant pas sollicit&eacute;.
+
+<a name="notion" class="ancre"></a><h2>Notion de pollupostage</h2>
+
+<p align="justify">Le terme &laquo;&nbsp;<b>spam</b>&nbsp;&raquo; d&eacute;signe l'envoi  massif de <a href="../utile/email.htm">courrier &eacute;lectronique</a> (souvent de type publicitaire)
+&agrave; des destinataires ne l'ayant pas sollicit&eacute; et dont les adresses ont g&eacute;n&eacute;ralement &eacute;t&eacute; r&eacute;cup&eacute;r&eacute;es sur <a href="../internet/internet.htm">internet</a>.
+Le mot &laquo;&nbsp;spam&nbsp;&raquo; provient du nom d'une marque de jambonneau commercialis&eacute;e par la compagnie <i>Hormel Foods</i>.
+L'association de ce mot au postage abusif provient d'une pi&egrave;ce des Monty Python (<i>Monty Python's famous spam-loving vikings</i>) qui se d&eacute;roule dans
+un restaurant viking dont la sp&eacute;cialit&eacute; est le jambonneau de marque &laquo;&nbsp;Spam&nbsp;&raquo;.
+Dans ce sketche, alors qu'un client commande un plat diff&eacute;rent, les autres clients se mettent &agrave; chanter en choeur &laquo;&nbsp;spam spam spam spam spam...&nbsp;&raquo; si bien que l'on n'entend plus le pauvre client !
+
+<p align="justify">Les personnes pratiquant l'envoi massif de <a href="../utile/email.htm">courrier</a> publicitaire sont appel&eacute;es &laquo;&nbsp;spammers&nbsp;&raquo;
+(en fran&ccedil;ais <i>spammeurs</i>), un mot qui a d&eacute;sormais une connotation p&eacute;jorative !
+
+<a name="pourquoi" class="ancre"></a><h2>Pourquoi le spam ?</h2>
+
+<p align="justify">Le but premier du spam est de faire de la publicit&eacute; &agrave; moindre prix par &laquo;&nbsp;envoi massif de courrier &eacute;lectronique non sollicit&eacute;&nbsp;&raquo; (en anglais <i>junk mail</i>) ou par &laquo;&nbsp;multi-postage abusif&nbsp;&raquo; (<i>EMP</i>).
+
+<p align="justify">Les spammeurs pr&eacute;tendent parfois, en toute mauvaise foi, que leurs destinataires se sont inscrits spontan&eacute;ment &agrave; leur base de donn&eacute;es
+et que le courrier ainsi re&ccedil;u est facile &agrave; supprimer, ce qui constitue au final un moyen &eacute;cologique de faire de la publicit&eacute;.
+
+<a name="spammeurs" class="ancre"></a><h2>Mode de fonctionnement des spammeurs</h2>
+
+<p align="justify">Les spammeurs collectent des adresses &eacute;lectroniques sur internet (dans les <a href="../www/forum.htm">forums</a>,
+sur les sites internet, dans les groupes de discussion, etc.) gr&acirc;ce &agrave; des logiciels, appel&eacute;s &laquo;&nbsp;<i>robots</i>&nbsp;&raquo;, parcourant
+les diff&eacute;rentes pages et stockant au passage dans une base de donn&eacute;es toutes les adresses &eacute;lectroniques y figurant.
+
+<p align="justify">Il ne reste ensuite au spammeur qu'&agrave; lancer une application envoyant successivement &agrave; chaque adresse le message publicitaire.
+
+<a name="effets" class="ancre"></a><h2>Les effets du spam</h2>
+
+<p align="justify">Les inconv&eacute;nients majeurs du spam sont&nbsp;:
+<ul>
+<li>l'espace qu'il occupe dans les bo&icirc;tes aux lettres des victimes ;
+<li>la difficile consultation des messages personnels ou professionnels au sein de nombreux messages publicitaires
+et l'augmentation du risque de suppression erron&eacute;e ou de non-lecture de messages importants ;
+<li>la perte de temps occasionn&eacute;e par le tri et la suppression des messages non sollicit&eacute;s ;
+<li>le caract&egrave;re violant ou d&eacute;gradant des textes ou images v&eacute;hicul&eacute;s par ces messages, pouvant
+heurter la sensibilit&eacute; des plus jeunes ;
+<li>la bande passante qu'il gaspille sur le r&eacute;seau des r&eacute;seaux.
+</ul>
+
+
+<p align="justify">Le spam induit &eacute;galement des co&ucirc;ts de gestion suppl&eacute;mentaires pour les fournisseurs d'acc&egrave;s &agrave; internet (FAI),
+se r&eacute;percutant sur le co&ucirc;t de leurs abonnements. Ce surco&ucirc;t est notamment li&eacute; &agrave; &nbsp;:
+<ul>
+<li>la mise en place des syst&egrave;mes antispam ;
+<li>la sensibilisation des utilisateurs ;
+<li>la formation du personnel ;
+<li>la consommation de ressources suppl&eacute;mentaires (serveurs de filtrage, etc.).
+</ul>
+
+<a name="combattre" class="ancre"></a><h2>Combattre le spam</h2>
+
+<p align="justify">Les spammeurs utilisent g&eacute;n&eacute;ralement de fausses adresses d'envoi, il est donc totalement inutile
+de r&eacute;pondre. Qui plus est une r&eacute;ponse peut indiquer au spammeur que l'adresse est active.
+
+<p align="justify">De la m&ecirc;me fa&ccedil;on, lorsque vous recevez un spam (courrier non sollicit&eacute;),
+il peut arriver qu'un lien en bas de page vous propose de ne plus recevoir ce type de message. Si tel est le cas
+il y a de grandes chances pour que le lien permette au spammeur d'identifier les adresses actives. Il est ainsi
+conseill&eacute; de supprimer le message.
+
+<p align="justify">Il existe &eacute;galement des dispositifs antispam permettant de rep&eacute;rer et, le cas
+&eacute;ch&eacute;ant, de supprimer les messages ind&eacute;sirables sur la base de r&egrave;gles &eacute;volu&eacute;es.
+On distingue g&eacute;n&eacute;ralement deux familles de logiciels antispam&nbsp;:
+<ul>
+<li>Les <b>dispositifs antispam c&ocirc;t&eacute; client</b>, situ&eacute; au niveau du client de messagerie. Il s'agit
+g&eacute;n&eacute;ralement de syst&egrave;mes poss&eacute;dant des filtres permettant d'identifier, sur la base de r&egrave;gles
+pr&eacute;d&eacute;finies ou d'un apprentissage (filtres bay&eacute;siens).
+<li>Les <b>dispositifs antispam c&ocirc;t&eacute; serveur</b>, permettant un filtrage du courrier avant remise aux
+destinataires. Ce type de dispositif est de loin le meilleur car il permet de stopper le courrier non sollicit&eacute; en amont
+et &eacute;viter l'engorgement des r&eacute;seaux et des bo&icirc;tes aux lettres. Une solution interm&eacute;diaire consiste
+&agrave; configurer le dispositif antispam du serveur de fa&ccedil;on &agrave; marquer les messages
+avec un champ d'en-t&ecirc;te sp&eacute;cifique (par exemple <i>X-Spam-Status: Yes</i>). Gr&acirc;ce &agrave; ce marquage, il est
+ais&eacute; de filtrer les messages au niveau du client de messagerie.
+</ul>
+
+<p align="justify">En cas d'encombrement ou de saturation totale de la bo&icirc;te aux lettres, la solution ultime
+consiste &agrave; changer de bo&icirc;te aux lettres. Il est toutefois conseill&eacute; de garder l'ancienne bo&icirc;te aux
+lettres pendant un laps de temps suffisant afin de r&eacute;cup&eacute;rer les adresses de vos contacts et
+d'&ecirc;tre en mesure de communiquer la nouvelle adresse aux seules personnes l&eacute;gitimes.
+
+<a name="eviter" class="ancre"></a><h2>Eviter le spam</h2>
+
+<p align="justify">Afin d'&eacute;viter le spam, il est n&eacute;cessaire de divulguer son adresse &eacute;lectronique le moins possible
+et &agrave; ce titre&nbsp;:
+<ul>
+<li><b>Ne pas relayer les messages</b> (blagues, etc.) invitant l'utilisateur &agrave; transmettre le courrier au maximum de contacts possible.
+De telles listes sont effectivement des aubaines
+pour les collecteurs d'adresses.
+Il est &eacute;ventuellement possible de faire suivre le message en s'assurant de masquer les adresses des destinataires pr&eacute;c&eacute;dents.
+<li><b>Eviter au maximum de publier son adresse &eacute;lectronique</b> sur des forums ou des sites internet.
+<li>Dans la mesure du possible remplacer son adresse &eacute;lectronique par une image (non d&eacute;tectable par les aspirateurs d'adresses)
+ou bien en la d&eacute;composant (par exemple &laquo;&nbsp;jean tiret francois point pillou arobase commentcamarche point net&nbsp;&raquo;.
+<li><b>Cr&eacute;er une ou plusieurs &laquo;&nbsp;adresses-jetables&nbsp;&raquo;</b> servant uniquement &agrave; s'inscrire ou s'identifier sur
+les sites jug&eacute;s non dignes de confiance. Le comble du raffinement, lorsque vous en avez la possibilit&eacute;, consiste
+&agrave; cr&eacute;er autant d'alias d'adresses que d'inscriptions en veillant &agrave; y inscrire le nom de l'entreprise ou du site. Ainsi,
+en cas de r&eacute;ception d'un courrier non sollicit&eacute; il sera ais&eacute; d'identifier d'o&ugrave; provient la &laquo;&nbsp;fuite d'information&nbsp;&raquo;.
+</ul>
+
+<h2 id="sujets_sim">Trucs & astuces pertinents trouv&eacute;s dans la base de connaissances</h2><table class="simili"><tr class="sb">
+<td style="width:75px"><span class="">10/11&nbsp;14h53</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-4557-free-activer-le-filtre-anti-spam"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-4557-free-activer-le-filtre-anti-spam">Activer le filtre anti-spam</a> (<a href="http://www.commentcamarche.net/faq/163-free">Free</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">05/10&nbsp;13h53</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-1914-msn-blocage-courrier-indesirable"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-1914-msn-blocage-courrier-indesirable">Blocage courrier indésirable</a> (<a href="http://www.commentcamarche.net/faq/342-msn-messenger">MSN Messenger</a>)</td>
+
+</tr>
+<tr class="sb">
+<td style="width:75px"><span class="Date">21/09&nbsp;10h31</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-3140-mythes-mon-pc-n-interesse-pas-les-pirates"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-3140-mythes-mon-pc-n-interesse-pas-les-pirates">Mon PC n'intéresse pas les pirates</a> (<a href="http://www.commentcamarche.net/faq/434-mythes-et-legendes">Mythes et légendes</a>)</td>
+
+</tr>
+<tr class="sa"><td colspan="3" style="text-align:right"><img src="../images/plus.png" alt="Spam" border="0"> Plus d'astuces sur &laquo;&nbsp;<a href="../astuces/spam"><b>Spam</b></a>&nbsp;&raquo;</td></tr></table><h2 id="discus_sim">Discussions pertinentes trouv&eacute;es dans le forum</h2><table class="simili"><tr class="sb">
+<td><span class="Date">22/12&nbsp;22h48</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2545408-spam-indesirable-fenetre-winantispyware2006#2006-12-24%2000%3A29%3A48"><img src="../images/carrevalid.png" border="0" alt="spam indésirable fenêtre winantispyware2006"></a><a href="http://www.commentcamarche.net/forum/affich-2545408-spam-indesirable-fenetre-winantispyware2006">&nbsp;[Spam indésirable] fenêtre WinAntispyware2006</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">24/12&nbsp;00h29</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2545408-spam-indesirable-fenetre-winantispyware2006#2006-12-24%2000%3A29%3A48">Chercheurbis</a></td><td style="text-align:center"><span class="Texte">17</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">08/03&nbsp;17h12</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2136086-spam-ou-virus-violent#2006-03-11%2020%3A06%3A06"><img src="../images/carrevalid.png" border="0" alt="spam virus violent"></a><a href="http://www.commentcamarche.net/forum/affich-2136086-spam-ou-virus-violent">&nbsp;Spam ou virus violent?</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">11/03&nbsp;20h06</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-2136086-spam-ou-virus-violent#2006-03-11%2020%3A06%3A06">djidji</a></td><td style="text-align:center"><span class="Texte">15</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Date">11/11&nbsp;21h09</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2468744-comment-se-debarasser-des-spam#2006-11-15%2019%3A13%3A57"><img src="../images/carrevalid.png" border="0" alt="debarasser spam"></a><a href="http://www.commentcamarche.net/forum/affich-2468744-comment-se-debarasser-des-spam">&nbsp;comment se debarasser des spam</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">15/11&nbsp;19h13</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2468744-comment-se-debarasser-des-spam#2006-11-15%2019%3A13%3A57">3x</a></td><td style="text-align:center"><span class="Texte">14</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Date">20/12&nbsp;16h06</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2540565-mon-pc-spam-et-services-exe-s-arete#2006-12-23%2016%3A19%3A27"><img src="../images/carrevalid.png" border="0" alt="pc spam _ services.exe arete"></a><a href="http://www.commentcamarche.net/forum/affich-2540565-mon-pc-spam-et-services-exe-s-arete">&nbsp;Mon pc spam -_- et services.exe s'arete :'(</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">23/12&nbsp;16h19</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2540565-mon-pc-spam-et-services-exe-s-arete#2006-12-23%2016%3A19%3A27">bpwarrior</a></td><td style="text-align:center"><span class="Texte">13</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">09/12&nbsp;09h43</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1967907-j-envoie-des-spam#2005-12-10%2008%3A48%3A55"><img src="../images/carrevalid.png" border="0" alt="envoie spam"></a><a href="http://www.commentcamarche.net/forum/affich-1967907-j-envoie-des-spam">&nbsp;J'envoie des spam</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">10/12&nbsp;08h48</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1967907-j-envoie-des-spam#2005-12-10%2008%3A48%3A55">Gouril</a></td><td style="text-align:center"><span class="Texte">12</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">13/09&nbsp;16h01</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2377486-spam-il-y-a-trop-de-mails-identiques-envoyes#2006-09-14%2021%3A05%3A06"><img src="../images/carrevalid.png" border="0" alt="spam mails identiques envoyés"></a><a href="http://www.commentcamarche.net/forum/affich-2377486-spam-il-y-a-trop-de-mails-identiques-envoyes">&nbsp;SPAM Il y a trop de mails identiques envoyés</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">14/09&nbsp;21h05</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2377486-spam-il-y-a-trop-de-mails-identiques-envoyes#2006-09-14%2021%3A05%3A06">boulepate62</a></td><td style="text-align:center"><span class="Texte">11</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">17/11&nbsp;07h26</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1921738-spam-il-y-a-trop-de-mails-identiques-envoyes#2006-10-16%2008%3A47%3A09"><img src="../images/carrevalid.png" border="0" alt="spam mails identiques envoyés"></a><a href="http://www.commentcamarche.net/forum/affich-1921738-spam-il-y-a-trop-de-mails-identiques-envoyes">&nbsp;spam Il y a trop de mails identiques envoyés</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">16/10&nbsp;08h47</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-1921738-spam-il-y-a-trop-de-mails-identiques-envoyes#2006-10-16%2008%3A47%3A09">Jorges</a></td><td style="text-align:center"><span class="Texte">11</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Date">26/10&nbsp;17h59</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2441646-spam-sur-voila#2006-10-27%2017%3A04%3A41"><img src="../images/carrevalid.png" border="0" alt="spam"></a><a href="http://www.commentcamarche.net/forum/affich-2441646-spam-sur-voila">&nbsp;[spam] sur voila</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">27/10&nbsp;17h04</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2441646-spam-sur-voila#2006-10-27%2017%3A04%3A41">boulepate62</a></td><td style="text-align:center"><span class="Texte">11</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">11/01&nbsp;12h47</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2031156-est-ce-bien-un-spam-conseillez-moi-svp#2006-01-13%2001%3A14%3A10"><img src="../images/carrevalid.png" border="0" alt="spam conseillez"></a><a href="http://www.commentcamarche.net/forum/affich-2031156-est-ce-bien-un-spam-conseillez-moi-svp">&nbsp;[Est-ce bien un spam ?Conseillez-moi SVP]</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">13/01&nbsp;01h14</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2031156-est-ce-bien-un-spam-conseillez-moi-svp#2006-01-13%2001%3A14%3A10">garagiste</a></td><td style="text-align:center"><span class="Texte">8</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">18/11&nbsp;12h55</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1924532-spam-newsletter-ou-est-la-limite#2005-11-18%2013%3A52%3A48"><img src="../images/carrevalid.png" border="0" alt="spam newsletter limite"></a><a href="http://www.commentcamarche.net/forum/affich-1924532-spam-newsletter-ou-est-la-limite">&nbsp;SPAM - Newsletter où est la limite</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-11-windows">Windows</a></td>
+<td><span class="Date">18/11&nbsp;13h52</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1924532-spam-newsletter-ou-est-la-limite#2005-11-18%2013%3A52%3A48">ZIG1</a></td><td style="text-align:center"><span class="Texte">6</span></td>
+</tr>
+	<tr class="sa">
+	<td colspan="2"><span class="Texte"><img src="../images/carreblock.gif" width="12" alt="" title="Discussion ferm&eacute;e">Discussion ferm&eacute;e
+    <img src="../images/carrevalid.png" width="12" alt="" title="Probl&egrave;me r&eacute;solu">Probl&egrave;me r&eacute;solu</span></td>
+	<td style="vertical-align:top;text-align:right;" colspan="3"><img src="../images/plus.png" alt="Spam" border="0"> Plus de discussions sur &laquo;&nbsp;<a href="http://www.commentcamarche.net/f/spam"><b>Spam</b></a>&nbsp;&raquo;</td></tr></table>
+<br><span class="Footer">Ce document intitul&eacute; &laquo;&nbsp;<a href="http://www.commentcamarche.net/attaques/spam.php3">Attaques - Spam (pollupostage)</a>&nbsp;&raquo; issu de l'<a href="http://www.commentcamarche.net/encyclopedie/">encyclop&eacute;die</a> <a href="http://www.commentcamarche.net/informatique/informatique.php3">informatique</a> <a href="http://www.commentcamarche.net">Comment &Ccedil;a Marche</a> (<a href="http://www.commentcamarche.net/">www.commentcamarche.net</a>) est mis &agrave; disposition sous les termes de la licence <a href="../ccmguide/ccmlicence.htm">Creative Commons</a>.
+Vous pouvez copier, modifier des copies de cette page, dans les conditions fix&eacute;es par la licence, tant que cette note appara&icirc;t clairement.</span>
+<br>&nbsp;
+<center><a href="buffer-overflow.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a>
+<a href="mailbombing.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></center>
+</div>
+
+</td>
+</tr>
+
+<tr><th colspan="4" style="background-color:#CED7F6">&nbsp;</th></tr>
+</table>
+<div id="footer"><br><a href="../ccmguide/ccmintro.htm"><b>A propos</b></a> | <a href="../ccmguide/cgu-conditions-generales.htm"><b>Conditions g&eacute;n&eacute;rales</b></a>  | &copy; Tous droits r&eacute;serv&eacute;s 2007 <a href="http://www.commentcamarche.net">Quidéa</a>
+</div>
+</body>
+</html>

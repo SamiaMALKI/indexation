@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="copyright" content="1998 by Jean-François Pillou">
+<META NAME="ROBOTS" content="all">
+<META NAME="author" content="Jean-François Pillou">
+<META NAME="subject" content="Comment ça marche? [Les attaques &agrave; distance]">
+<META NAME="topic" content="Phishing">
+<META NAME="keywords" content="Phishing, fishing, Phiching, fiching, pishing, compte bancaire, carte bancaire, carte bleue, Hame&ccedil;onnage">
+<META NAME="title" content="Attaques - Phishing (hame&ccedil;onnage)">
+<title>Le phishing</title>
+<link rel="stylesheet" href="../ccm.css" type="text/css">
+
+
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute; informatique" href="http://www.commentcamarche.net/rss/actualite.php3">
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute;s du site CommentCaMarche.net" href="http://www.commentcamarche.net/rss/rss.php3">
+</head>
+
+<body>
+<table class="ccmmain">
+<tr>
+<td height="1" width="170"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="540"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="12"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="10"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+</tr>
+
+<tr>
+<td colspan="2" bgcolor="#AEBFE2" style="vertical-align:top;text-align:left;height:46;background-color:#AEBFE2;">
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td style="vertical-align:top;"><a href="../index.htm" target="_top"><img src="../images/logotop.png" border="0" width="328" height="42" title="Comment Ca Marche - Communaut&eacute; informatique" alt="Comment Ca Marche - Communaut&eacute; informatique"></a></td>
+    <td style="width:30px">&nbsp;</td>
+    <td style="vertical-align:middle;text-align:left"></td></tr>
+</table>
+</td>
+<td style="background-color: #AEBFE2; vertical-align:bottom;">&nbsp;</td>
+<td style="background-color: #AEBFE2;">&nbsp;</td>
+</tr>
+
+<tr>
+<td bgcolor="#8EA6D6"><div id="ccmicons"><a href="../index.htm"  ><img src="../images/icohome2.gif" name="icohome" alt="Accueil - Encyclop&eacute;die informatique" title="Accueil - Encyclop&eacute;die informatique" width="24" border="0"></a><a href="http://www.commentcamarche.net/encyclopedie"  ><img src="../images/icozip2.gif" name="icozip" alt="T&eacute;l&eacute;charger l'encyclop&eacute;die" title="T&eacute;l&eacute;charger l'encyclop&eacute;die" width="24" border="0"></a><a href="http://www.commentcamarche.net/ccmbugs/?Bug_url=%2Fattaques%2Fphishing.php3#ecrire"  ><img src="../images/icowri2.gif" name="icowri" alt="Contribuer &agrave; cet article" width="24" border="0"></a><a href="http://www.commentcamarche.net/contact/"  ><img src="../images/icomail2.gif" name="icomail" alt="" title="Ecrire &agrave; Jean-Francois Pillou" width="24"  border="0"></a></div></td>
+<td colspan="3" bgcolor="#8EA6D6"></td>
+</tr>
+
+<tr>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1" rowspan="2"><img src="../images/pixel_white.png" height="1" width="12" alt=""></td>
+
+<td bgcolor="#FFFFFF" height="100%" valign="top" rowspan="2">
+</td>
+</tr>
+
+<tr><td valign="top" colspan="3"><div id="contenu"><h1> Attaques - Phishing (hame&ccedil;onnage)</h1><table border="0" cellpadding="0" cellspacing="0" width="722">
+	<tr>
+		<td><img src="images/phishing.png" alt="Le phishing"></td>
+		<td valign="top" width="38"><a href="scam.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a></td>
+		<td valign="top" width="38"><a href="loteries.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></td>		<td valign="top" width="63"><a href="../index.htm"><img src="../images/logoPClw.gif" alt="Encyclopédie" height="60" width="63" border="0"></a></td>
+		</tr>
+</table>
+<br><div id="CCMmenu"><table width="156">
+<tr><th>Attaques / Arnaques</th></tr>
+<tr><td><a class="mlink" href="attaques.htm">Piratage</a></td></tr>
+<tr><th><span class="rouge">Pirates</span></th></tr>
+<tr><td><a class="mlink" href="typologie-pirates.htm">Typologie de pirates</a></td></tr>
+<tr><td><a class="mlink" href="methodologie.htm">M&eacute;thodologie</a></td></tr>
+<tr><td><a class="mlink" href="exploits.htm">Exploits</a></td></tr>
+<tr><th><span class="rouge">Attaques cryptographiques</span></th></tr>
+<tr><td><a class="mlink" href="passwd.htm">Mot de passe</a></td></tr>
+<tr><td><a class="mlink" href="man-in-the-middle.htm">Man in the middle</a></td></tr>
+<tr><td><a class="mlink" href="rejeu.htm">Rejeu</a></td></tr>
+<tr><th><span class="rouge">D&eacute;ni de service</span></th></tr>
+<tr><td><a class="mlink" href="dos.htm">D&eacute;ni de service</a></td></tr>
+<tr><td><a class="mlink" href="attaque-smurf.htm">Attaque par r&eacute;flexion</a></td></tr>
+<tr><td><a class="mlink" href="attaque-ping-de-la-mort.htm">Ping de la mort</a></td></tr>
+<tr><td><a class="mlink" href="attaque-teardrop.htm">Fragmentation</a></td></tr>
+<tr><td><a class="mlink" href="attaque-land.htm">Land</a></td></tr>
+<tr><td><a class="mlink" href="attaque-syn.htm">SYN</a></td></tr>
+<tr><th><span class="rouge">Techniques</span></th></tr>
+<tr><td><a class="mlink" href="usurpation-ip-spoofing.htm">Usurpation d'adresse IP</a> (<a class="mlink" href="usurpation-ip-spoofing.htm">spoofing</a>)</td></tr>
+<tr><td><a class="mlink" href="vol-session-hijacking.htm">Vol de session</a> (<a class="mlink" href="vol-session-hijacking.htm">hijacking</a>)</td></tr>
+<tr><td><a class="mlink" href="arp-poisoning.htm">ARP poisoning</a></td></tr>
+<tr><td><a class="mlink" href="sniffers.htm">Ecoute r&eacute;seau</a> (<a class="mlink" href="sniffers.htm">sniffers</a>)</td></tr>
+<tr><td><a class="mlink" href="balayage-ports.htm">Balayage de ports</a> (<a class="mlink" href="balayage-ports.htm">Port scanning</a>)</td></tr>
+<tr><td><a class="mlink" href="buffer-overflow.htm">D&eacute;bordement de tampon</a> (<a class="mlink" href="buffer-overflow.htm">Buffer overflow</a>)</td></tr>
+<tr><td><a class="mlink" href="spam.htm">Spam</a></td></tr>
+<tr><td><a class="mlink" href="mailbombing.htm">Mail-bombing</a></td></tr>
+<tr><th><span class="rouge">Vuln&eacute;rabilit&eacute;s du web</span></th></tr>
+<tr><td><a class="mlink" href="attaques-web.htm">Attaques web</a></td></tr>
+<tr><td><a class="mlink" href="falsification-donnees.htm">Falsification de la saisie</a></td></tr>
+<tr><td><a class="mlink" href="manipulation-url.htm">Manipulation d'URL</a></td></tr>
+<tr><td><a class="mlink" href="cross-site-scripting.htm">Cross-Site Scripting</a></td></tr>
+<tr><td><a class="mlink" href="injection-commandes-sql.htm">Injection SQL</a></td></tr>
+<tr><th><span class="rouge">Arnaques</span></th></tr>
+<tr><td><a class="mlink" href="ingenierie-sociale.htm">Ing&eacute;nierie sociale</a> (<a class="mlink" href="ingenierie-sociale.htm">social engineering</a>)</td></tr>
+<tr><td><a class="mlink" href="scam.htm">Scam</a></td></tr>
+<tr><td><a class="mlink" href="phishing.htm">Phishing</a></td></tr>
+<tr><td><a class="mlink" href="loteries.htm">Loteries</a></td></tr>
+<tr><th><span class="rouge">Plus d'information</span></th></tr>
+<tr><td><a class="mlink" href="../virus/virus.htm">Virus</a></td></tr>
+<tr><td><a class="mlink" href="../virus/trojan.htm">Cheval de Troie</a></td></tr>
+<tr><td><a class="mlink" href="../virus/spywares.htm">Spyware</a></td></tr>
+<tr><td><a class="mlink" href="../virus/hoax.htm">Hoax</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/12-securite">FAQ s&eacute;curit&eacute;</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/156-internet">FAQ Internet</a></td></tr>
+</table></div><hr>
+
+<a name="phishing" class="ancre"></a><h2>Introduction au phishing</h2>
+
+<p align="justify">Le <b>phishing</b> (contraction des mots anglais &laquo;&nbsp;<i>fishing</i>&nbsp;&raquo;, en fran&ccedil;ais
+ <i>p&ecirc;che</i>, et &laquo;&nbsp;<i>phreaking</i>&nbsp;&raquo;, d&eacute;signant le <i>piratage de lignes t&eacute;l&eacute;phoniques</i>),
+ traduit parfois en &laquo;&nbsp;<b>hame&ccedil;onnage</b>&nbsp;&raquo;, est une technique frauduleuse utilis&eacute;e par les pirates informatiques
+pour r&eacute;cup&eacute;rer des informations (g&eacute;n&eacute;ralement bancaires) aupr&egrave;s d'internautes.
+
+<p align="justify">La technique du phishing est une technique d'&laquo;&nbsp;<a href="ingenierie-sociale.htm">ing&eacute;nierie sociale</a>&nbsp;&raquo; c'est-&agrave;-dire
+consistant &agrave; exploiter non pas une faille informatique mais la &laquo;&nbsp;faille humaine&nbsp;&raquo; en dupant les
+internautes par le biais d'un courrier &eacute;lectronique semblant provenir d'une entreprise de confiance,
+typiquement une banque ou un site de commerce.
+
+<p align="justify">Le mail envoy&eacute; par ces pirates usurpe l'identit&eacute; d'une entreprise
+(banque, site de commerce &eacute;lectronique, etc.) et les invite &agrave; se connecter
+en ligne par le biais d'un <a href="../html/htmlhypertxt.htm">lien hypertexte</a> et de metre &agrave; jour des informations les concernant
+dans un formulaire d'une page web factice, copie conforme du site original, en pr&eacute;textant par exemple
+une mise &agrave; jour du service, une intervention du support technique, etc.
+
+<p align="justify">Dans la mesure o&ugrave; les adresses &eacute;lectroniques sont collect&eacute;es au hasard sur Internet,
+le message a g&eacute;n&eacute;ralement peu de sens puisque l'internaute n'est pas client de la banque de laquelle
+le courrier semble provenir. Mais sur la quantit&eacute; des messages envoy&eacute;s il arrive que
+le destinataire soit effectivement client de la banque.
+
+<p align="justify">Ainsi, par le biais du formulaire, les pirates r&eacute;ussissent &agrave; obtenir
+les identifiants et mots de passe des internautes ou bien des donn&eacute;es personnelles ou bancaires
+(num&eacute;ro de client, num&eacute;ro de compte en banque, etc.).
+
+<p align="justify">Gr&acirc;ce &agrave; ces donn&eacute;es les pirates sont capables de transf&eacute;rer directement l'argent
+sur un autre compte ou bien d'obtenir ult&eacute;rieurement les donn&eacute;es n&eacute;cessaires en utilisant
+intelligemment les donn&eacute;es personnelles ainsi collect&eacute;es.
+
+<a name="se-proteger" class="ancre"></a><h2>Comment se prot&eacute;ger du phishing ?</h2>
+
+<p align="justify">Lorsque vous recevez un message provenant a priori d'un &eacute;tablissement bancaire
+ou d'un site de commerce &eacute;lectronique il est n&eacute;cessaire de vous poser les questions suivantes&nbsp;:
+<ul>
+<li>Ai-je communiqu&eacute; &agrave; cet &eacute;tablissement mon adresse de messagerie ?
+<li>Le courrier re&ccedil;u poss&egrave;de-t-il des &eacute;l&eacute;ments personnalis&eacute;s permettant d'identifier sa v&eacute;racit&eacute;
+(num&eacute;ro de client, nom de l'agence, etc.) ?
+</ul>
+
+<p align="justify">Par ailleurs il est conseill&eacute; de suivre les conseils suivants&nbsp;:
+<ul>
+<li>Ne cliquez pas directement sur le lien contenu dans le mail, mais ouvrez votre navigateur
+et saisissez vous-m&ecirc;me l'<a href="../internet/url.htm">URL</a> d'acc&egrave;s au service.
+<li>M&eacute;fiez-vous des formulaires demandant des informations bancaires.
+Il est en effet rare (voire impossible) qu'une banque vous demande des renseignements
+aussi importants par un simple courrier &eacute;lectronique. Dans le doute contactez directement
+votre agence par t&eacute;l&eacute;phone !
+<li>Assurez-vous, lorsque vous saisissez des informations sensibles, que le navigateur est en mode
+<a href="../crypto/ssl.htm">s&eacute;curis&eacute;</a>, c'est-&agrave;-dire que l'adresse dans la
+barre du navigateur commence par <i>https</i> et qu'un petit cadenas est affich&eacute; dans la
+barre d'&eacute;tat au bas de votre navigateur, et que le domaine du site dans l'adresse correspond bien &agrave;
+celui annonc&eacute; (gare &agrave; l'orthographe du domaine) !
+</ul>
+
+<a name="plus" class="ancre"></a><h2>Plus d'informations</h2>
+
+<p align="justify">
+<ul>
+<li><a href="http://www.antiphishing.org" target="_blank">Anti-Phishing Working Group</a>
+</ul>
+
+<h2 id="discus_sim">Discussions pertinentes trouv&eacute;es dans le forum</h2><table class="simili"><tr class="sb">
+<td><span class="Dategris">29/09&nbsp;20h22</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1825277-phishing-gare-au-vrai-faux-ssl#2005-10-02%2020%3A58%3A42"><img src="../images/carre.gif" border="0" alt=""></a><a href="http://www.commentcamarche.net/forum/affich-1825277-phishing-gare-au-vrai-faux-ssl">&nbsp;[phishing] gare au vrai faux SSL</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-8-actualites">Actualités</a></td>
+<td><span class="Date">02/10&nbsp;20h58</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1825277-phishing-gare-au-vrai-faux-ssl#2005-10-02%2020%3A58%3A42">teutates</a></td><td style="text-align:center"><span class="Texte">9</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">15/08&nbsp;00h52</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1734457-phishing-nouvelle-vague#2005-11-26%2017%3A01%3A06"><img src="../images/carre.gif" border="0" alt=""></a><a href="http://www.commentcamarche.net/forum/affich-1734457-phishing-nouvelle-vague">&nbsp;Phishing - Nouvelle vague</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-8-actualites">Actualités</a></td>
+<td><span class="Date">26/11&nbsp;17h01</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-1734457-phishing-nouvelle-vague#2005-11-26%2017%3A01%3A06">moka</a></td><td style="text-align:center"><span class="Texte">7</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">20/03&nbsp;12h03</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2154660-alerte-au-phishing-pour-les-clients-bnp#2006-03-21%2014%3A49%3A39"><img src="../images/carre.gif" border="0" alt=""></a><a href="http://www.commentcamarche.net/forum/affich-2154660-alerte-au-phishing-pour-les-clients-bnp">&nbsp;Alerte au phishing pour les clients BNP</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-8-actualites">Actualités</a></td>
+<td><span class="Date">21/03&nbsp;14h49</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2154660-alerte-au-phishing-pour-les-clients-bnp#2006-03-21%2014%3A49%3A39">kephas</a></td><td style="text-align:center"><span class="Texte">6</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">28/04&nbsp;21h04</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2213014-nouveau-le-phishing-par-telephone#2006-05-09%2008%3A36%3A08"><img src="../images/carre.gif" border="0" alt=""></a><a href="http://www.commentcamarche.net/forum/affich-2213014-nouveau-le-phishing-par-telephone">&nbsp;Nouveau : Le phishing par téléphone</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-8-actualites">Actualités</a></td>
+<td><span class="Date">09/05&nbsp;08h36</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2213014-nouveau-le-phishing-par-telephone#2006-05-09%2008%3A36%3A08">Cqqn</a></td><td style="text-align:center"><span class="Texte">6</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">07/05&nbsp;16h24</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1501732-phishing-techniques-de-plus-en-plus-tordues#2005-05-10%2019%3A34%3A20"><img src="../images/carre.gif" border="0" alt=""></a><a href="http://www.commentcamarche.net/forum/affich-1501732-phishing-techniques-de-plus-en-plus-tordues">&nbsp;[Phishing] Techniques de plus en plus tordues</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-8-actualites">Actualités</a></td>
+<td><span class="Date">10/05&nbsp;19h34</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1501732-phishing-techniques-de-plus-en-plus-tordues#2005-05-10%2019%3A34%3A20">phil_2045</a></td><td style="text-align:center"><span class="Texte">4</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">11/11&nbsp;20h21</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1910775-free-et-wanadoo-phishing#2005-11-12%2020%3A49%3A23"><img src="../images/carre.gif" border="0" alt=""></a><a href="http://www.commentcamarche.net/forum/affich-1910775-free-et-wanadoo-phishing">&nbsp;Free et Wanadoo - Phishing</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-8-actualites">Actualités</a></td>
+<td><span class="Date">12/11&nbsp;20h49</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1910775-free-et-wanadoo-phishing#2005-11-12%2020%3A49%3A23">Taupophile</a></td><td style="text-align:center"><span class="Texte">4</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">28/01&nbsp;18h24</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1269741-phishing-premiere-condamnation-en-france#2005-01-31%2013%3A15%3A18"><img src="../images/carre.gif" border="0" alt=""></a><a href="http://www.commentcamarche.net/forum/affich-1269741-phishing-premiere-condamnation-en-france">&nbsp;[Phishing] première condamnation en France</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-8-actualites">Actualités</a></td>
+<td><span class="Date">31/01&nbsp;13h15</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1269741-phishing-premiere-condamnation-en-france#2005-01-31%2013%3A15%3A18">teebo</a></td><td style="text-align:center"><span class="Texte">3</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">28/05&nbsp;07h20</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1555425-phishing-tentatives-d-escroquerie-en-cours#2005-05-28%2010%3A33%3A16"><img src="../images/carre.gif" border="0" alt=""></a><a href="http://www.commentcamarche.net/forum/affich-1555425-phishing-tentatives-d-escroquerie-en-cours">&nbsp;[phishing] Tentatives d'escroquerie en cours</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-8-actualites">Actualités</a></td>
+<td><span class="Date">28/05&nbsp;10h33</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1555425-phishing-tentatives-d-escroquerie-en-cours#2005-05-28%2010%3A33%3A16">Furtif</a></td><td style="text-align:center"><span class="Texte">2</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">20/03&nbsp;02h29</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2154327-attention-phishing#2006-03-20%2020%3A57%3A45"><img src="../images/carre.gif" border="0" alt="attention phishing"></a><a href="http://www.commentcamarche.net/forum/affich-2154327-attention-phishing">&nbsp;Attention Phishing !</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">20/03&nbsp;20h57</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2154327-attention-phishing#2006-03-20%2020%3A57%3A45">Yoan</a></td><td style="text-align:center"><span class="Texte">2</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Date">19/11&nbsp;17h19</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2481798-credit-mutuel-escroquerie-par-phishing#2006-11-23%2014%3A25%3A23"><img src="../images/carre.gif" border="0" alt="credit mutuel escroquerie phishing"></a><a href="http://www.commentcamarche.net/forum/affich-2481798-credit-mutuel-escroquerie-par-phishing">&nbsp;[Credit Mutuel] Escroquerie par Phishing</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-8-actualites">Actualités</a></td>
+<td><span class="Date">23/11&nbsp;14h25</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2481798-credit-mutuel-escroquerie-par-phishing#2006-11-23%2014%3A25%3A23">jisisv</a></td><td style="text-align:center"><span class="Texte">2</span></td>
+</tr>
+	<tr class="sa">
+	<td colspan="2"><span class="Texte"><img src="../images/carreblock.gif" width="12" alt="" title="Discussion ferm&eacute;e">Discussion ferm&eacute;e
+    <img src="../images/carrevalid.png" width="12" alt="" title="Probl&egrave;me r&eacute;solu">Probl&egrave;me r&eacute;solu</span></td>
+	<td style="vertical-align:top;text-align:right;" colspan="3"><img src="../images/plus.png" alt="Phishing" border="0"> Plus de discussions sur &laquo;&nbsp;<a href="http://www.commentcamarche.net/f/phishing"><b>Phishing</b></a>&nbsp;&raquo;</td></tr></table>
+<br><span class="Footer">Ce document intitul&eacute; &laquo;&nbsp;<a href="http://www.commentcamarche.net/attaques/phishing.php3">Attaques - Phishing (hame&ccedil;onnage)</a>&nbsp;&raquo; issu de l'<a href="http://www.commentcamarche.net/encyclopedie/">encyclop&eacute;die</a> <a href="http://www.commentcamarche.net/informatique/informatique.php3">informatique</a> <a href="http://www.commentcamarche.net">Comment &Ccedil;a Marche</a> (<a href="http://www.commentcamarche.net/">www.commentcamarche.net</a>) est mis &agrave; disposition sous les termes de la licence <a href="../ccmguide/ccmlicence.htm">Creative Commons</a>.
+Vous pouvez copier, modifier des copies de cette page, dans les conditions fix&eacute;es par la licence, tant que cette note appara&icirc;t clairement.</span>
+<br>&nbsp;
+<center><a href="scam.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a>
+<a href="loteries.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></center>
+</div>
+
+</td>
+</tr>
+
+<tr><th colspan="4" style="background-color:#CED7F6">&nbsp;</th></tr>
+</table>
+<div id="footer"><br><a href="../ccmguide/ccmintro.htm"><b>A propos</b></a> | <a href="../ccmguide/cgu-conditions-generales.htm"><b>Conditions g&eacute;n&eacute;rales</b></a>  | &copy; Tous droits r&eacute;serv&eacute;s 2007 <a href="http://www.commentcamarche.net">Quidéa</a>
+</div>
+</body>
+</html>

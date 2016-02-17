@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="copyright" content="2005 by Jean-François Pillou">
+<META NAME="ROBOTS" content="all">
+<META NAME="author" content="Jean-François Pillou">
+<META NAME="subject" content="Comment ça marche? [Attaque teardrop]">
+<META NAME="topic" content="Piraté">
+<META NAME="keywords" content="Attaque smurf, d&eacute;ni de service, hacker, hacking, pirate, piratage, Attaque par r&eacute;flexion">
+<META NAME="title" content="Attaques - Attaque par r&eacute;flexion (Smurf)">
+<title>Attaque par r&eacute;flexion (Smurf)</title>
+<link rel="stylesheet" href="../ccm.css" type="text/css">
+
+
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute; informatique" href="http://www.commentcamarche.net/rss/actualite.php3">
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute;s du site CommentCaMarche.net" href="http://www.commentcamarche.net/rss/rss.php3">
+</head>
+
+<body>
+
+<table class="ccmmain">
+<tr>
+<td height="1" width="170"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="540"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="12"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="10"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+</tr>
+
+<tr>
+<td colspan="2" bgcolor="#AEBFE2" style="vertical-align:top;text-align:left;height:46;background-color:#AEBFE2;">
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td style="vertical-align:top;"><a href="../index.htm" target="_top"><img src="../images/logotop.png" border="0" width="328" height="42" title="Comment Ca Marche - Communaut&eacute; informatique" alt="Comment Ca Marche - Communaut&eacute; informatique"></a></td>
+    <td style="width:30px">&nbsp;</td>
+    <td style="vertical-align:middle;text-align:left"></td></tr>
+</table>
+</td>
+<td style="background-color: #AEBFE2; vertical-align:bottom;">&nbsp;</td>
+<td style="background-color: #AEBFE2;">&nbsp;</td>
+</tr>
+
+<tr>
+<td bgcolor="#8EA6D6"><div id="ccmicons"><a href="../index.htm"  ><img src="../images/icohome2.gif" name="icohome" alt="Accueil - Encyclop&eacute;die informatique" title="Accueil - Encyclop&eacute;die informatique" width="24" border="0"></a><a href="http://www.commentcamarche.net/encyclopedie"  ><img src="../images/icozip2.gif" name="icozip" alt="T&eacute;l&eacute;charger l'encyclop&eacute;die" title="T&eacute;l&eacute;charger l'encyclop&eacute;die" width="24" border="0"></a><a href="http://www.commentcamarche.net/ccmbugs/?Bug_url=%2Fattaques%2Fattaque-smurf.php3#ecrire"  ><img src="../images/icowri2.gif" name="icowri" alt="Contribuer &agrave; cet article" width="24" border="0"></a><a href="http://www.commentcamarche.net/contact/"  ><img src="../images/icomail2.gif" name="icomail" alt="" title="Ecrire &agrave; Jean-Francois Pillou" width="24"  border="0"></a></div></td>
+<td colspan="3" bgcolor="#8EA6D6"></td>
+</tr>
+
+<tr>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1" rowspan="2"><img src="../images/pixel_white.png" height="1" width="12" alt=""></td>
+
+<td bgcolor="#FFFFFF" height="100%" valign="top" rowspan="2">
+</td>
+</tr>
+
+<tr><td valign="top" colspan="3"><div id="contenu"><h1> Attaques - Attaque par r&eacute;flexion (Smurf)</h1><table border="0" cellpadding="0" cellspacing="0" width="722">
+	<tr>
+		<td><img src="images/attaque-smurf.png" alt="Attaque par r&eacute;flexion (smurf)"></td>
+		<td valign="top" width="38"><a href="dos.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a></td>
+		<td valign="top" width="38"><a href="attaque-ping-de-la-mort.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></td>		<td valign="top" width="63"><a href="../index.htm"><img src="../images/logoPClw.gif" alt="Encyclopédie" height="60" width="63" border="0"></a></td>
+		</tr>
+</table>
+<br><div id="CCMmenu"><table width="156">
+<tr><th>Attaques / Arnaques</th></tr>
+<tr><td><a class="mlink" href="attaques.htm">Piratage</a></td></tr>
+<tr><th><span class="rouge">Pirates</span></th></tr>
+<tr><td><a class="mlink" href="typologie-pirates.htm">Typologie de pirates</a></td></tr>
+<tr><td><a class="mlink" href="methodologie.htm">M&eacute;thodologie</a></td></tr>
+<tr><td><a class="mlink" href="exploits.htm">Exploits</a></td></tr>
+<tr><th><span class="rouge">Attaques cryptographiques</span></th></tr>
+<tr><td><a class="mlink" href="passwd.htm">Mot de passe</a></td></tr>
+<tr><td><a class="mlink" href="man-in-the-middle.htm">Man in the middle</a></td></tr>
+<tr><td><a class="mlink" href="rejeu.htm">Rejeu</a></td></tr>
+<tr><th><span class="rouge">D&eacute;ni de service</span></th></tr>
+<tr><td><a class="mlink" href="dos.htm">D&eacute;ni de service</a></td></tr>
+<tr><td><a class="mlink" href="attaque-smurf.htm">Attaque par r&eacute;flexion</a></td></tr>
+<tr><td><a class="mlink" href="attaque-ping-de-la-mort.htm">Ping de la mort</a></td></tr>
+<tr><td><a class="mlink" href="attaque-teardrop.htm">Fragmentation</a></td></tr>
+<tr><td><a class="mlink" href="attaque-land.htm">Land</a></td></tr>
+<tr><td><a class="mlink" href="attaque-syn.htm">SYN</a></td></tr>
+<tr><th><span class="rouge">Techniques</span></th></tr>
+<tr><td><a class="mlink" href="usurpation-ip-spoofing.htm">Usurpation d'adresse IP</a> (<a class="mlink" href="usurpation-ip-spoofing.htm">spoofing</a>)</td></tr>
+<tr><td><a class="mlink" href="vol-session-hijacking.htm">Vol de session</a> (<a class="mlink" href="vol-session-hijacking.htm">hijacking</a>)</td></tr>
+<tr><td><a class="mlink" href="arp-poisoning.htm">ARP poisoning</a></td></tr>
+<tr><td><a class="mlink" href="sniffers.htm">Ecoute r&eacute;seau</a> (<a class="mlink" href="sniffers.htm">sniffers</a>)</td></tr>
+<tr><td><a class="mlink" href="balayage-ports.htm">Balayage de ports</a> (<a class="mlink" href="balayage-ports.htm">Port scanning</a>)</td></tr>
+<tr><td><a class="mlink" href="buffer-overflow.htm">D&eacute;bordement de tampon</a> (<a class="mlink" href="buffer-overflow.htm">Buffer overflow</a>)</td></tr>
+<tr><td><a class="mlink" href="spam.htm">Spam</a></td></tr>
+<tr><td><a class="mlink" href="mailbombing.htm">Mail-bombing</a></td></tr>
+<tr><th><span class="rouge">Vuln&eacute;rabilit&eacute;s du web</span></th></tr>
+<tr><td><a class="mlink" href="attaques-web.htm">Attaques web</a></td></tr>
+<tr><td><a class="mlink" href="falsification-donnees.htm">Falsification de la saisie</a></td></tr>
+<tr><td><a class="mlink" href="manipulation-url.htm">Manipulation d'URL</a></td></tr>
+<tr><td><a class="mlink" href="cross-site-scripting.htm">Cross-Site Scripting</a></td></tr>
+<tr><td><a class="mlink" href="injection-commandes-sql.htm">Injection SQL</a></td></tr>
+<tr><th><span class="rouge">Arnaques</span></th></tr>
+<tr><td><a class="mlink" href="ingenierie-sociale.htm">Ing&eacute;nierie sociale</a> (<a class="mlink" href="ingenierie-sociale.htm">social engineering</a>)</td></tr>
+<tr><td><a class="mlink" href="scam.htm">Scam</a></td></tr>
+<tr><td><a class="mlink" href="phishing.htm">Phishing</a></td></tr>
+<tr><td><a class="mlink" href="loteries.htm">Loteries</a></td></tr>
+<tr><th><span class="rouge">Plus d'information</span></th></tr>
+<tr><td><a class="mlink" href="../virus/virus.htm">Virus</a></td></tr>
+<tr><td><a class="mlink" href="../virus/trojan.htm">Cheval de Troie</a></td></tr>
+<tr><td><a class="mlink" href="../virus/spywares.htm">Spyware</a></td></tr>
+<tr><td><a class="mlink" href="../virus/hoax.htm">Hoax</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/12-securite">FAQ s&eacute;curit&eacute;</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/156-internet">FAQ Internet</a></td></tr>
+</table></div>
+<hr>
+
+<a name="technique" class="ancre"></a><h2>La technique dite &laquo;&nbsp;par r&eacute;flexion&nbsp;&raquo;</h2>
+
+<p align="justify">La technique dite &laquo;&nbsp;attaque par r&eacute;flexion&nbsp;&raquo; (en anglais &laquo;&nbsp;smurf&nbsp;&raquo;)
+est bas&eacute;e sur l'utilisation de serveurs de diffusion (<i>broadcast</i>) pour paralyser un r&eacute;seau. Un serveur broadcast est un serveur capable de dupliquer un message et de l'envoyer &agrave;
+toutes les machines pr&eacute;sentes sur le m&ecirc;me r&eacute;seau.
+
+<p align="justify">Le sc&eacute;nario d'une telle attaque est le suivant&nbsp;:
+<ul>
+<li>la machine attaquante envoie une requ&ecirc;te <i>ping</i> (<a href="../outils-reseau/ping.htm">ping</a> est un outil
+exploitant le protocole <a href="../internet/icmp.htm">ICMP</a>, permettant de tester
+les connexions sur un r&eacute;seau en envoyant un paquet et en attendant la r&eacute;ponse) &agrave; un ou plusieurs serveurs
+de diffusion en falsifiant l'adresse IP source (adresse &agrave; laquelle le serveur doit th&eacute;oriquement r&eacute;pondre)
+et en fournissant l'adresse IP d'une machine cible.
+<li>le serveur de diffusion r&eacute;percute la requ&ecirc;te sur l'ensemble du r&eacute;seau&nbsp;;
+<li>toutes les machines du r&eacute;seau envoient une r&eacute;ponse au server de diffusion,
+<li>le serveur broadcast redirige les r&eacute;ponses vers la machine cible.
+</ul>
+
+<p align="justify">Ainsi, lorsque la machine attaquante adresse une requ&ecirc;te &agrave; plusieurs
+serveurs de diffusion situ&eacute;s sur des r&eacute;seaux
+diff&eacute;rents, l'ensemble des r&eacute;ponses des ordinateurs des diff&eacute;rents r&eacute;seaux vont
+&ecirc;tre rout&eacute;es sur la machine cible.
+
+<p align="center"><img src="images/smurf.png" alt="Le d&eacute;ni de service par SMURF">
+
+<p align="justify">De cette fa&ccedil;on l'essentiel du travail de l'attaquant consiste &agrave; trouver une liste de
+serveurs de diffusion et &agrave; falsifier l'adresse de r&eacute;ponse afin de les diriger vers la
+machine cible.
+
+<h2 id="sujets_sim">Trucs & astuces pertinents trouv&eacute;s dans la base de connaissances</h2><table class="simili"><tr class="sb">
+<td style="width:75px"><span class="">22/09&nbsp;22h07</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-2981-windows-j-utilise-une-version-piratee"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-2981-windows-j-utilise-une-version-piratee">J'utilise une version piratée</a> (<a href="http://www.commentcamarche.net/faq/102-windows">Windows</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">21/09&nbsp;10h31</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-3140-mythes-mon-pc-n-interesse-pas-les-pirates"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-3140-mythes-mon-pc-n-interesse-pas-les-pirates">Mon PC n'intéresse pas les pirates</a> (<a href="http://www.commentcamarche.net/faq/434-mythes-et-legendes">Mythes et légendes</a>)</td>
+
+</tr>
+<tr class="sb">
+<td style="width:75px"><span class="Date">21/09&nbsp;09h22</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-671-msn-compte-msn-messenger-pirate-piratage-de-compte-hotmail"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-671-msn-compte-msn-messenger-pirate-piratage-de-compte-hotmail">Compte MSN Messenger piraté / Piratage de compte Hotmail</a> (<a href="http://www.commentcamarche.net/faq/342-msn-messenger">MSN Messenger</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">24/10&nbsp;09h52</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-307-astuce-devenir-pirate-informatique"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-307-astuce-devenir-pirate-informatique">Devenir pirate informatique</a> (<a href="http://www.commentcamarche.net/faq/13-loi-et-droits">Loi et droits</a>)</td>
+
+</tr>
+<tr class="sb">
+<td style="width:75px"><span class="Date">25/10&nbsp;21h13</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-494-msn-securite-et-reaction-face-a-un-piratage"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-494-msn-securite-et-reaction-face-a-un-piratage">Sécurité et réaction face à un piratage</a> (<a href="http://www.commentcamarche.net/faq/342-msn-messenger">MSN Messenger</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">20/07&nbsp;14h12</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-1881-messagerie-pirater-une-boite-mail-facile"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-1881-messagerie-pirater-une-boite-mail-facile">Pirater une boite mail ? Facile !</a> (<a href="http://www.commentcamarche.net/faq/282-messagerie-electronique">Messagerie électronique</a>)</td>
+
+</tr>
+<tr class="sa"><td colspan="3" style="text-align:right"><img src="../images/plus.png" alt="Piraté" border="0"> Plus d'astuces sur &laquo;&nbsp;<a href="../astuces/pirate"><b>Piraté</b></a>&nbsp;&raquo;</td></tr></table><h2 id="discus_sim">Discussions pertinentes trouv&eacute;es dans le forum</h2><table class="simili"><tr class="sb">
+<td><span class="Dategris">11/06&nbsp;00h38</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2268068-compte-gmail-pirate#2006-11-13%2015%3A31%3A24"><img src="../images/carrevalid.png" border="0" alt="compte gmail piraté"></a><a href="http://www.commentcamarche.net/forum/affich-2268068-compte-gmail-pirate">&nbsp;compte gmail piraté</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">13/11&nbsp;15h31</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-2268068-compte-gmail-pirate#2006-11-13%2015%3A31%3A24">assi</a></td><td style="text-align:center"><span class="Texte">48</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">08/03&nbsp;01h20</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1356093-msn-je-suis-pirate#2007-02-16%2018%3A31%3A03"><img src="../images/carrevalid.png" border="0" alt="msn piraté"></a><a href="http://www.commentcamarche.net/forum/affich-1356093-msn-je-suis-pirate">&nbsp;[msn]je suis piraté</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">16/02&nbsp;18h31</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1356093-msn-je-suis-pirate#2007-02-16%2018%3A31%3A03">balltrap34</a></td><td style="text-align:center"><span class="Texte">31</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">13/07&nbsp;13h51</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1667551-homepage-pirate-probleme-avec-sexplorer-it#2005-07-23%2009%3A27%3A22"><img src="../images/carrevalid.png" border="0" alt="homepage pirate sexplorer.it"></a><a href="http://www.commentcamarche.net/forum/affich-1667551-homepage-pirate-probleme-avec-sexplorer-it">&nbsp;[homepage pirate] probleme avec sexplorer.it</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">23/07&nbsp;09h27</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1667551-homepage-pirate-probleme-avec-sexplorer-it#2005-07-23%2009%3A27%3A22">balltrap34</a></td><td style="text-align:center"><span class="Texte">22</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">25/01&nbsp;18h27</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1262279-barre-recherche-internet-pirate#2005-02-26%2023%3A40%3A18"><img src="../images/carrevalid.png" border="0" alt="barre internet pirate"></a><a href="http://www.commentcamarche.net/forum/affich-1262279-barre-recherche-internet-pirate">&nbsp;barre recherche internet pirate</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">26/02&nbsp;23h40</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1262279-barre-recherche-internet-pirate#2005-02-26%2023%3A40%3A18">balltrap34</a></td><td style="text-align:center"><span class="Texte">10</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">26/10&nbsp;22h22</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1877051-ai-je-un-pirate-sur-la-ligne#2005-10-27%2012%3A11%3A11"><img src="../images/carrevalid.png" border="0" alt="pirate ligne"></a><a href="http://www.commentcamarche.net/forum/affich-1877051-ai-je-un-pirate-sur-la-ligne">&nbsp;Ai-je un pirate sur la ligne?</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">27/10&nbsp;12h11</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1877051-ai-je-un-pirate-sur-la-ligne#2005-10-27%2012%3A11%3A11">blackdrizzt</a></td><td style="text-align:center"><span class="Texte">6</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">02/08&nbsp;00h47</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2324797-connexion-pirate-aidez-moiii-svp#2006-08-05%2014%3A11%3A13"><img src="../images/carrevalid.png" border="0" alt="connexion piraté moiii"></a><a href="http://www.commentcamarche.net/forum/affich-2324797-connexion-pirate-aidez-moiii-svp">&nbsp;Connexion piraté ??    :(   Aidez moiii ! svp</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">05/08&nbsp;14h11</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2324797-connexion-pirate-aidez-moiii-svp#2006-08-05%2014%3A11%3A13">jmp59</a></td><td style="text-align:center"><span class="Texte">5</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">13/04&nbsp;15h26</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1438326-je-n-ai-plus-l-adsl-on-a-pirate-ma-ligne#2005-04-15%2011%3A58%3A17"><img src="../images/carrevalid.png" border="0" alt="adsl piraté ligne"></a><a href="http://www.commentcamarche.net/forum/affich-1438326-je-n-ai-plus-l-adsl-on-a-pirate-ma-ligne">&nbsp;je n'ai plus l'adsl on a piraté ma ligne</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">15/04&nbsp;11h58</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-1438326-je-n-ai-plus-l-adsl-on-a-pirate-ma-ligne#2005-04-15%2011%3A58%3A17">cardot</a></td><td style="text-align:center"><span class="Texte">4</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">14/03&nbsp;20h37</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1372909-on-me-pirate-ma-connexion-internet#2005-03-15%2009%3A35%3A17"><img src="../images/carrevalid.png" border="0" alt="pirate connexion internet"></a><a href="http://www.commentcamarche.net/forum/affich-1372909-on-me-pirate-ma-connexion-internet">&nbsp;on me pirate ma connexion internet</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">15/03&nbsp;09h35</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1372909-on-me-pirate-ma-connexion-internet#2005-03-15%2009%3A35%3A17">aldo13</a></td><td style="text-align:center"><span class="Texte">3</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">01/04&nbsp;10h15</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2173600-site-aquabase-org-pirate-que-faire#2006-04-01%2016%3A39%3A56"><img src="../images/carrevalid.png" border="0" alt="site aquabase.org piraté.que"></a><a href="http://www.commentcamarche.net/forum/affich-2173600-site-aquabase-org-pirate-que-faire">&nbsp;[site aquabase.org piraté.que faire?]</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">01/04&nbsp;16h39</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2173600-site-aquabase-org-pirate-que-faire#2006-04-01%2016%3A39%3A56">incognito02</a></td><td style="text-align:center"><span class="Texte">3</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Date">11/11&nbsp;20h23</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2468660-windows-me-dit-que-mon-prog-est-un-pirate#2006-11-12%2011%3A07%3A38"><img src="../images/carrevalid.png" border="0" alt="windows dit prog. pirate"></a><a href="http://www.commentcamarche.net/forum/affich-2468660-windows-me-dit-que-mon-prog-est-un-pirate">&nbsp;windows me dit que mon prog. est un pirate!</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-11-windows">Windows</a></td>
+<td><span class="Date">12/11&nbsp;11h07</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2468660-windows-me-dit-que-mon-prog-est-un-pirate#2006-11-12%2011%3A07%3A38">boulepate62</a></td><td style="text-align:center"><span class="Texte">3</span></td>
+</tr>
+	<tr class="sa">
+	<td colspan="2"><span class="Texte"><img src="../images/carreblock.gif" width="12" alt="" title="Discussion ferm&eacute;e">Discussion ferm&eacute;e
+    <img src="../images/carrevalid.png" width="12" alt="" title="Probl&egrave;me r&eacute;solu">Probl&egrave;me r&eacute;solu</span></td>
+	<td style="vertical-align:top;text-align:right;" colspan="3"><img src="../images/plus.png" alt="Piraté" border="0"> Plus de discussions sur &laquo;&nbsp;<a href="http://www.commentcamarche.net/f/pirate"><b>Piraté</b></a>&nbsp;&raquo;</td></tr></table>
+<br><span class="Footer">Ce document intitul&eacute; &laquo;&nbsp;<a href="http://www.commentcamarche.net/attaques/attaque-smurf.php3">Attaques - Attaque par r&eacute;flexion (Smurf)</a>&nbsp;&raquo; issu de l'<a href="http://www.commentcamarche.net/encyclopedie/">encyclop&eacute;die</a> <a href="http://www.commentcamarche.net/informatique/informatique.php3">informatique</a> <a href="http://www.commentcamarche.net">Comment &Ccedil;a Marche</a> (<a href="http://www.commentcamarche.net/">www.commentcamarche.net</a>) est mis &agrave; disposition sous les termes de la licence <a href="../ccmguide/ccmlicence.htm">Creative Commons</a>.
+Vous pouvez copier, modifier des copies de cette page, dans les conditions fix&eacute;es par la licence, tant que cette note appara&icirc;t clairement.</span>
+<br>&nbsp;
+<center><a href="dos.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a>
+<a href="attaque-ping-de-la-mort.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></center>
+</div>
+
+</td>
+</tr>
+
+<tr><th colspan="4" style="background-color:#CED7F6">&nbsp;</th></tr>
+</table>
+<div id="footer"><br><a href="../ccmguide/ccmintro.htm"><b>A propos</b></a> | <a href="../ccmguide/cgu-conditions-generales.htm"><b>Conditions g&eacute;n&eacute;rales</b></a>  | &copy; Tous droits r&eacute;serv&eacute;s 2007 <a href="http://www.commentcamarche.net">Quidéa</a>
+</div>
+</body>
+</html>

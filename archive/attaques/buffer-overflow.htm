@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="copyright" content="2004 by Jean-François Pillou">
+<META NAME="ROBOTS" content="all">
+<META NAME="author" content="Jean-François Pillou">
+<META NAME="subject" content="Comment ça marche? [Les Scanners]">
+<META NAME="topic" content="Buffer overflow">
+<META NAME="keywords" content="d&eacute;bordement de tampon, debordement de tampon, Buffer overflow, Pile, Stack, Shellcode">
+<title>Attaques par d&eacute;bordement de tampon (buffer overflow)</title>
+<META NAME="title" content="Attaques - D&eacute;bordement de tampon (Buffer overflow)">
+<link rel="stylesheet" href="../ccm.css" type="text/css">
+
+
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute; informatique" href="http://www.commentcamarche.net/rss/actualite.php3">
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute;s du site CommentCaMarche.net" href="http://www.commentcamarche.net/rss/rss.php3">
+</head>
+
+<body>
+
+<table class="ccmmain">
+<tr>
+<td height="1" width="170"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="540"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="12"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="10"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+</tr>
+
+<tr>
+<td colspan="2" bgcolor="#AEBFE2" style="vertical-align:top;text-align:left;height:46;background-color:#AEBFE2;">
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td style="vertical-align:top;"><a href="../index.htm" target="_top"><img src="../images/logotop.png" border="0" width="328" height="42" title="Comment Ca Marche - Communaut&eacute; informatique" alt="Comment Ca Marche - Communaut&eacute; informatique"></a></td>
+    <td style="width:30px">&nbsp;</td>
+    <td style="vertical-align:middle;text-align:left"></td></tr>
+</table>
+</td>
+<td style="background-color: #AEBFE2; vertical-align:bottom;">&nbsp;</td>
+<td style="background-color: #AEBFE2;">&nbsp;</td>
+</tr>
+
+<tr>
+<td bgcolor="#8EA6D6"><div id="ccmicons"><a href="../index.htm"  ><img src="../images/icohome2.gif" name="icohome" alt="Accueil - Encyclop&eacute;die informatique" title="Accueil - Encyclop&eacute;die informatique" width="24" border="0"></a><a href="http://www.commentcamarche.net/encyclopedie"  ><img src="../images/icozip2.gif" name="icozip" alt="T&eacute;l&eacute;charger l'encyclop&eacute;die" title="T&eacute;l&eacute;charger l'encyclop&eacute;die" width="24" border="0"></a><a href="http://www.commentcamarche.net/ccmbugs/?Bug_url=%2Fattaques%2Fbuffer-overflow.php3#ecrire"  ><img src="../images/icowri2.gif" name="icowri" alt="Contribuer &agrave; cet article" width="24" border="0"></a><a href="http://www.commentcamarche.net/contact/"  ><img src="../images/icomail2.gif" name="icomail" alt="" title="Ecrire &agrave; Jean-Francois Pillou" width="24"  border="0"></a></div></td>
+<td colspan="3" bgcolor="#8EA6D6"></td>
+</tr>
+
+<tr>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1" rowspan="2"><img src="../images/pixel_white.png" height="1" width="12" alt=""></td>
+
+<td bgcolor="#FFFFFF" height="100%" valign="top" rowspan="2">
+</td>
+</tr>
+
+<tr><td valign="top" colspan="3"><div id="contenu"><h1> Attaques - D&eacute;bordement de tampon (Buffer overflow)</h1><table border="0" cellpadding="0" cellspacing="0" width="722">
+	<tr>
+		<td><img src="images/buffer-overflow.png" alt="D&eacute;bordement de tampon - Buffer overflow"></td>
+		<td valign="top" width="38"><a href="balayage-ports.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a></td>
+		<td valign="top" width="38"><a href="spam.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></td>		<td valign="top" width="63"><a href="../index.htm"><img src="../images/logoPClw.gif" alt="Encyclopédie" height="60" width="63" border="0"></a></td>
+		</tr>
+</table>
+<br><div id="CCMmenu"><table width="156">
+<tr><th>Attaques / Arnaques</th></tr>
+<tr><td><a class="mlink" href="attaques.htm">Piratage</a></td></tr>
+<tr><th><span class="rouge">Pirates</span></th></tr>
+<tr><td><a class="mlink" href="typologie-pirates.htm">Typologie de pirates</a></td></tr>
+<tr><td><a class="mlink" href="methodologie.htm">M&eacute;thodologie</a></td></tr>
+<tr><td><a class="mlink" href="exploits.htm">Exploits</a></td></tr>
+<tr><th><span class="rouge">Attaques cryptographiques</span></th></tr>
+<tr><td><a class="mlink" href="passwd.htm">Mot de passe</a></td></tr>
+<tr><td><a class="mlink" href="man-in-the-middle.htm">Man in the middle</a></td></tr>
+<tr><td><a class="mlink" href="rejeu.htm">Rejeu</a></td></tr>
+<tr><th><span class="rouge">D&eacute;ni de service</span></th></tr>
+<tr><td><a class="mlink" href="dos.htm">D&eacute;ni de service</a></td></tr>
+<tr><td><a class="mlink" href="attaque-smurf.htm">Attaque par r&eacute;flexion</a></td></tr>
+<tr><td><a class="mlink" href="attaque-ping-de-la-mort.htm">Ping de la mort</a></td></tr>
+<tr><td><a class="mlink" href="attaque-teardrop.htm">Fragmentation</a></td></tr>
+<tr><td><a class="mlink" href="attaque-land.htm">Land</a></td></tr>
+<tr><td><a class="mlink" href="attaque-syn.htm">SYN</a></td></tr>
+<tr><th><span class="rouge">Techniques</span></th></tr>
+<tr><td><a class="mlink" href="usurpation-ip-spoofing.htm">Usurpation d'adresse IP</a> (<a class="mlink" href="usurpation-ip-spoofing.htm">spoofing</a>)</td></tr>
+<tr><td><a class="mlink" href="vol-session-hijacking.htm">Vol de session</a> (<a class="mlink" href="vol-session-hijacking.htm">hijacking</a>)</td></tr>
+<tr><td><a class="mlink" href="arp-poisoning.htm">ARP poisoning</a></td></tr>
+<tr><td><a class="mlink" href="sniffers.htm">Ecoute r&eacute;seau</a> (<a class="mlink" href="sniffers.htm">sniffers</a>)</td></tr>
+<tr><td><a class="mlink" href="balayage-ports.htm">Balayage de ports</a> (<a class="mlink" href="balayage-ports.htm">Port scanning</a>)</td></tr>
+<tr><td><a class="mlink" href="buffer-overflow.htm">D&eacute;bordement de tampon</a> (<a class="mlink" href="buffer-overflow.htm">Buffer overflow</a>)</td></tr>
+<tr><td><a class="mlink" href="spam.htm">Spam</a></td></tr>
+<tr><td><a class="mlink" href="mailbombing.htm">Mail-bombing</a></td></tr>
+<tr><th><span class="rouge">Vuln&eacute;rabilit&eacute;s du web</span></th></tr>
+<tr><td><a class="mlink" href="attaques-web.htm">Attaques web</a></td></tr>
+<tr><td><a class="mlink" href="falsification-donnees.htm">Falsification de la saisie</a></td></tr>
+<tr><td><a class="mlink" href="manipulation-url.htm">Manipulation d'URL</a></td></tr>
+<tr><td><a class="mlink" href="cross-site-scripting.htm">Cross-Site Scripting</a></td></tr>
+<tr><td><a class="mlink" href="injection-commandes-sql.htm">Injection SQL</a></td></tr>
+<tr><th><span class="rouge">Arnaques</span></th></tr>
+<tr><td><a class="mlink" href="ingenierie-sociale.htm">Ing&eacute;nierie sociale</a> (<a class="mlink" href="ingenierie-sociale.htm">social engineering</a>)</td></tr>
+<tr><td><a class="mlink" href="scam.htm">Scam</a></td></tr>
+<tr><td><a class="mlink" href="phishing.htm">Phishing</a></td></tr>
+<tr><td><a class="mlink" href="loteries.htm">Loteries</a></td></tr>
+<tr><th><span class="rouge">Plus d'information</span></th></tr>
+<tr><td><a class="mlink" href="../virus/virus.htm">Virus</a></td></tr>
+<tr><td><a class="mlink" href="../virus/trojan.htm">Cheval de Troie</a></td></tr>
+<tr><td><a class="mlink" href="../virus/spywares.htm">Spyware</a></td></tr>
+<tr><td><a class="mlink" href="../virus/hoax.htm">Hoax</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/12-securite">FAQ s&eacute;curit&eacute;</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/156-internet">FAQ Internet</a></td></tr>
+</table></div>
+<hr>
+
+<a name="introduction" class="ancre"></a><h2>Introduction au buffer overflow</h2>
+
+<p align="justify">Les attaques par &laquo;&nbsp;<b>d&eacute;bordement de tampon</b>&nbsp;&raquo; (en anglais &laquo;&nbsp;<b>Buffer overflow</b>&nbsp;&raquo;,
+parfois &eacute;galement appel&eacute;es <i>d&eacute;passement de tampon</i>) ont
+pour principe l'ex&eacute;cution de code arbitraire par un programme en lui envoyant plus de donn&eacute;es qu'il n'est
+cens&eacute; en recevoir.
+
+<p align="justify">En effet, les programmes acceptant des donn&eacute;es en entr&eacute;e, pass&eacute;es en param&egrave;tre,
+les stockent temporairement dans une zone de la m&eacute;moire appel&eacute;e <i>tampon</i> (en anglais <i>buffer</i>).
+Or, certaines fonctions de lecture, telles que les fonctions <i>strcpy()</i> du <a href="../c/cintro.htm">langage C</a>, ne
+g&egrave;rent pas ce type de d&eacute;bordement et provoquent un plantage de l'application pouvant aboutir &agrave; l'ex&eacute;cution
+du code arbitraire et ainsi donner un acc&egrave;s au syst&egrave;me.
+
+<p align="justify">La mise en oeuvre de ce type d'attaque est tr&egrave;s compliqu&eacute;e
+car elle demande une connaissance fine de l'architecture des programmes et des processeurs.
+N&eacute;anmoins, il existe de nombreux <a href="exploits.htm">exploits</a> capable d'automatiser
+ce type d'attaque et la rendant &agrave; la port&eacute;e de quasi-n&eacute;ophytes.
+
+<a name="principe" class="ancre"></a><h2>Principe de fonctionnement</h2>
+
+<p align="justify">Le principe de fonctionnement d'un d&eacute;bordement de tampon est fortement li&eacute;
+&agrave; l'architecture du processeur sur lequel l'application vuln&eacute;rable est ex&eacute;cut&eacute;e.
+
+<p align="justify">Les donn&eacute;es saisies dans une application sont stock&eacute;e
+en m&eacute;moire vive dans une zone appel&eacute;e <i>tampon</i>. Un programme correctement
+con&ccedil;u doit pr&eacute;voir une taille maximale pour les donn&eacute;es en entr&eacute;es
+et v&eacute;rifier que les donn&eacute;es saisies ne d&eacute;passent pas cette valeur.
+
+<p align="justify">Les instructions et les donn&eacute;es d'un programme en cours
+d'ex&eacute;cution sont provisoirement stock&eacute;es en m&eacute;moire
+de mani&egrave;re contig&ucirc;e dans une zone appel&eacute;e <i>pile</i> (en anglais <i>stack</i>).
+Les donn&eacute;es situ&eacute;es
+apr&egrave;s le tampon contiennent ainsi une adresse de retour (appel&eacute;e <i>pointeur d'instruction</i>) permettant au programme de continuer son ex&eacute;cution.
+Si la taille des donn&eacute;es est sup&eacute;rieure &agrave; la taille du tampon,
+l'adresse de retour est alors &eacute;cras&eacute;e et le programme lira une adresse
+m&eacute;moire invalide provoquant une faute de segmentation (en anglais <i>segmentation fault</i>) de l'application.
+
+<p align="justify">Un pirate ayant de bonnes connaissance techniques peut s'assurer
+que l'adresse m&eacute;moire &eacute;cras&eacute; corresponde &agrave; une adresse r&eacute;elle, par
+exemple situ&eacute;e dans le tampon lui-m&ecirc;me.
+Ainsi, en &eacute;crivant des instructions dans le tampon (code arbitraire), il lui est simple
+de l'ex&eacute;cuter.
+
+<p align="justify">Il est ainsi possible d'inclure dans le tampon des instructions
+ouvrant un interpr&ecirc;teur de commande (en anglais <i>shell</i>) et permettant au pirate
+de prendre la main sur le syst&egrave;me. Ce code arbitraire permettant d'ex&eacute;cuter
+l'interpr&ecirc;teur de commande est appel&eacute; <i>shellcode</i>.
+
+<a name="proteger" class="ancre"></a><h2>Se prot&eacute;ger d'un Buffer overflow</h2>
+
+<p align="justify">Pour se prot&eacute;ger de ce type d'attaque, il est n&eacute;cessaire de d&eacute;velopper des applications
+&agrave; l'aide de langages de programmation &eacute;volu&eacute;s, assurant une gestion fine
+de la m&eacute;moire allou&eacute;e ou bien &agrave; l'aide de langage de bas niveau
+en utilisant des biblioth&egrave;ques de fonctions s&eacute;curis&eacute;es (par exemple
+les fonctions <i>strncpy()</i>).
+
+<p align="justify">Des bulletins d'alerte sont r&eacute;guli&egrave;rement publi&eacute;s,
+annon&ccedil;ant la vuln&eacute;rabilit&eacute; de certaines applications &agrave; des attaques
+par d&eacute;bordement de tampon. Suite &agrave; ces bulletins d'alerte, les &eacute;diteurs des
+logiciels touch&eacute;s par la vuln&eacute;rabilit&eacute; publient g&eacute;n&eacute;ralement
+des correctifs (<i>patchs</i>) permettant de corriger la faille. Tout administrateur
+syst&egrave;me et r&eacute;seau se doit de se tenir inform&eacute; des alertes de
+s&eacute;curit&eacute; et d'appliquer le plus rapidement possible les correctifs.
+
+<a name="plus" class="ancre"></a><h2>Plus d'informations</h2>
+
+<p align="justify">
+<ul>
+<li><a href="http://www.phrack.org/phrack/49/P49-14" target="_blank">Smashing The Stack For Fun And Profit</a>, article &eacute;crit par
+<i>Aleph One</i> dans le magazine Phrack</li>
+</ul>
+
+<h2 id="sujets_sim">Trucs & astuces pertinents trouv&eacute;s dans la base de connaissances</h2><table class="simili"><tr class="sb">
+<td style="width:75px"><span class="">06/08&nbsp;17h55</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-2650-gravure-buffer-underrun-tampon-vide"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-2650-gravure-buffer-underrun-tampon-vide">Buffer underrun (tampon vide)</a> (<a href="http://www.commentcamarche.net/faq/404-gravure">Gravure</a>)</td>
+
+</tr>
+<tr class="sa"><td colspan="3" style="text-align:right"><img src="../images/plus.png" alt="Buffer overflow" border="0"> Plus d'astuces sur &laquo;&nbsp;<a href="../astuces/buffer-overflow"><b>Buffer overflow</b></a>&nbsp;&raquo;</td></tr></table><h2 id="discus_sim">Discussions pertinentes trouv&eacute;es dans le forum</h2><table class="simili"><tr class="sb">
+<td><span class="Dategris">18/01&nbsp;15h53</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1245304-buffer-overflow#2005-01-19%2022%3A11%3A37"><img src="../images/carrevalid.png" border="0" alt="buffer overflow"></a><a href="http://www.commentcamarche.net/forum/affich-1245304-buffer-overflow">&nbsp;buffer overflow</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">19/01&nbsp;22h11</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1245304-buffer-overflow#2005-01-19%2022%3A11%3A37">S!Ri</a></td><td style="text-align:center"><span class="Texte">2</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">08/01&nbsp;17h42</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-196169-gerer-le-smtp-buffer-overflow-vb#2003-01-14%2009%3A34%3A37"><img src="../images/carre.gif" border="0" alt="gérer smtp buffer overflow vb"></a><a href="http://www.commentcamarche.net/forum/affich-196169-gerer-le-smtp-buffer-overflow-vb">&nbsp;gérer le smtp buffer overflow (vb)</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-3-developpement">D&eacute;veloppement</a></td>
+<td><span class="Date">14/01&nbsp;09h34</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-196169-gerer-le-smtp-buffer-overflow-vb#2003-01-14%2009%3A34%3A37">Beldyn</a></td><td style="text-align:center"><span class="Texte">3</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">02/11&nbsp;16h14</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1092971-message-d-erreur-windows-buffer-overflow#2004-11-03%2009%3A33%3A55"><img src="../images/carre.gif" border="0" alt="message windows buffer overflow"></a><a href="http://www.commentcamarche.net/forum/affich-1092971-message-d-erreur-windows-buffer-overflow">&nbsp;Message d'erreur windows &quot;Buffer Overflow...&</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">03/11&nbsp;09h33</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-1092971-message-d-erreur-windows-buffer-overflow#2004-11-03%2009%3A33%3A55">pl014</a></td><td style="text-align:center"><span class="Texte">2</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">07/09&nbsp;12h43</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-988581-buffer-overflow#2004-09-07%2018%3A40%3A37"><img src="../images/carre.gif" border="0" alt="buffer overflow"></a><a href="http://www.commentcamarche.net/forum/affich-988581-buffer-overflow">&nbsp;buffer overflow</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">07/09&nbsp;18h40</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-988581-buffer-overflow#2004-09-07%2018%3A40%3A37">darkcrystal33</a></td><td style="text-align:center"><span class="Texte">1</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">04/07&nbsp;14h57</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2294916-virus-buffer-overflow-dans-wmedia-player#2006-07-04%2015%3A57%3A30"><img src="../images/carre.gif" border="0" alt="virus buffer overflow wmedia player"></a><a href="http://www.commentcamarche.net/forum/affich-2294916-virus-buffer-overflow-dans-wmedia-player">&nbsp;[Virus] buffer overflow dans Wmedia player</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">04/07&nbsp;15h57</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2294916-virus-buffer-overflow-dans-wmedia-player#2006-07-04%2015%3A57%3A30">green&nbsp;day</a></td><td style="text-align:center"><span class="Texte">1</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">03/02&nbsp;13h27</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1281673-projet-buffer-overflow#2005-02-03%2013%3A27%3A07"><img src="../images/carregold.png" border="0" alt="projet buffer overflow"></a><a href="http://www.commentcamarche.net/forum/affich-1281673-projet-buffer-overflow">&nbsp;Projet buffer overflow</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">03/02&nbsp;13h27</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-1281673-projet-buffer-overflow#2005-02-03%2013%3A27%3A07">kevin</a></td><td style="text-align:center"><span class="ForumRed">0</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Date">14/02&nbsp;00h01</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2675554-buffer-overflow-explorer-exe-kernel32#2007-02-14%2000%3A01%3A42"><img src="../images/carregold.png" border="0" alt="buffer overflow explorer.exe kernel32"></a><a href="http://www.commentcamarche.net/forum/affich-2675554-buffer-overflow-explorer-exe-kernel32">&nbsp;[buffer overflow] - explorer.exe:kernel32</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">14/02&nbsp;00h01</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-2675554-buffer-overflow-explorer-exe-kernel32#2007-02-14%2000%3A01%3A42">Ludo</a></td><td style="text-align:center"><span class="ForumRed">0</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">02/02&nbsp;14h26</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1279536-projet-buffer-overflow#2005-02-02%2015%3A26%3A26"><img src="../images/carre.gif" border="0" alt="projet buffer overflow"></a><a href="http://www.commentcamarche.net/forum/affich-1279536-projet-buffer-overflow">&nbsp;Projet buffer overflow</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">02/02&nbsp;15h26</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-1279536-projet-buffer-overflow#2005-02-02%2015%3A26%3A26">kevin</a></td><td style="text-align:center"><span class="Texte">1</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">06/06&nbsp;12h10</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1576727-c-vider-buffer#2005-06-06%2020%3A05%3A54"><img src="../images/carrevalid.png" border="0" alt="vider buffer"></a><a href="http://www.commentcamarche.net/forum/affich-1576727-c-vider-buffer">&nbsp;[C] Vider buffer</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-3-developpement">D&eacute;veloppement</a></td>
+<td><span class="Date">06/06&nbsp;20h05</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1576727-c-vider-buffer#2005-06-06%2020%3A05%3A54">sam3000</a></td><td style="text-align:center"><span class="Texte">6</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">08/11&nbsp;19h03</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1904451-que-signifie-stack-overflow#2005-11-09%2008%3A38%3A09"><img src="../images/carrevalid.png" border="0" alt="signifie stack overflow"></a><a href="http://www.commentcamarche.net/forum/affich-1904451-que-signifie-stack-overflow">&nbsp;que signifie stack overflow ?</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-1-logiciels-pilotes">Logiciels/Pilotes</a></td>
+<td><span class="Date">09/11&nbsp;08h38</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-1904451-que-signifie-stack-overflow#2005-11-09%2008%3A38%3A09">djeXh</a></td><td style="text-align:center"><span class="Texte">4</span></td>
+</tr>
+	<tr class="sa">
+	<td colspan="2"><span class="Texte"><img src="../images/carreblock.gif" width="12" alt="" title="Discussion ferm&eacute;e">Discussion ferm&eacute;e
+    <img src="../images/carrevalid.png" width="12" alt="" title="Probl&egrave;me r&eacute;solu">Probl&egrave;me r&eacute;solu</span></td>
+	<td style="vertical-align:top;text-align:right;" colspan="3"><img src="../images/plus.png" alt="Buffer overflow" border="0"> Plus de discussions sur &laquo;&nbsp;<a href="http://www.commentcamarche.net/f/buffer-overflow"><b>Buffer overflow</b></a>&nbsp;&raquo;</td></tr></table>
+<br><span class="Footer">Ce document intitul&eacute; &laquo;&nbsp;<a href="http://www.commentcamarche.net/attaques/buffer-overflow.php3">Attaques - D&eacute;bordement de tampon (Buffer overflow)</a>&nbsp;&raquo; issu de l'<a href="http://www.commentcamarche.net/encyclopedie/">encyclop&eacute;die</a> <a href="http://www.commentcamarche.net/informatique/informatique.php3">informatique</a> <a href="http://www.commentcamarche.net">Comment &Ccedil;a Marche</a> (<a href="http://www.commentcamarche.net/">www.commentcamarche.net</a>) est mis &agrave; disposition sous les termes de la licence <a href="../ccmguide/ccmlicence.htm">Creative Commons</a>.
+Vous pouvez copier, modifier des copies de cette page, dans les conditions fix&eacute;es par la licence, tant que cette note appara&icirc;t clairement.</span>
+<br>&nbsp;
+<center><a href="balayage-ports.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a>
+<a href="spam.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></center>
+</div>
+
+</td>
+</tr>
+
+<tr><th colspan="4" style="background-color:#CED7F6">&nbsp;</th></tr>
+</table>
+<div id="footer"><br><a href="../ccmguide/ccmintro.htm"><b>A propos</b></a> | <a href="../ccmguide/cgu-conditions-generales.htm"><b>Conditions g&eacute;n&eacute;rales</b></a>  | &copy; Tous droits r&eacute;serv&eacute;s 2007 <a href="http://www.commentcamarche.net">Quidéa</a>
+</div>
+</body>
+</html>

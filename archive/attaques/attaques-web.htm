@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="copyright" content="2005 by Jean-François Pillou">
+<META NAME="ROBOTS" content="all">
+<META NAME="author" content="Jean-François Pillou">
+<META NAME="subject" content="Comment ça marche? [Le Spoofing IP]">
+<META NAME="keywords" content="attaque de serveurs web">
+<META NAME="topic" content="Piratage web">
+<META NAME="title" content="Attaques - Attaque de serveurs web">
+<title>Attaques de serveurs web</title>
+<link rel="stylesheet" href="../ccm.css" type="text/css">
+
+
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute; informatique" href="http://www.commentcamarche.net/rss/actualite.php3">
+<link rel="alternate" type="application/rss+xml" title="CCM: Actualit&eacute;s du site CommentCaMarche.net" href="http://www.commentcamarche.net/rss/rss.php3">
+</head>
+
+<body>
+
+<table class="ccmmain">
+<tr>
+<td height="1" width="170"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="540"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="12"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+<td height="1" width="10"><img src="../images/pixel_transparent.gif" height="1" width="100%" alt=""></td>
+</tr>
+
+<tr>
+<td colspan="2" bgcolor="#AEBFE2" style="vertical-align:top;text-align:left;height:46;background-color:#AEBFE2;">
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td style="vertical-align:top;"><a href="../index.htm" target="_top"><img src="../images/logotop.png" border="0" width="328" height="42" title="Comment Ca Marche - Communaut&eacute; informatique" alt="Comment Ca Marche - Communaut&eacute; informatique"></a></td>
+    <td style="width:30px">&nbsp;</td>
+    <td style="vertical-align:middle;text-align:left"></td></tr>
+</table>
+</td>
+<td style="background-color: #AEBFE2; vertical-align:bottom;">&nbsp;</td>
+<td style="background-color: #AEBFE2;">&nbsp;</td>
+</tr>
+
+<tr>
+<td bgcolor="#8EA6D6"><div id="ccmicons"><a href="../index.htm"  ><img src="../images/icohome2.gif" name="icohome" alt="Accueil - Encyclop&eacute;die informatique" title="Accueil - Encyclop&eacute;die informatique" width="24" border="0"></a><a href="http://www.commentcamarche.net/encyclopedie"  ><img src="../images/icozip2.gif" name="icozip" alt="T&eacute;l&eacute;charger l'encyclop&eacute;die" title="T&eacute;l&eacute;charger l'encyclop&eacute;die" width="24" border="0"></a><a href="http://www.commentcamarche.net/ccmbugs/?Bug_url=%2Fattaques%2Fattaques-web.php3#ecrire"  ><img src="../images/icowri2.gif" name="icowri" alt="Contribuer &agrave; cet article" width="24" border="0"></a><a href="http://www.commentcamarche.net/contact/"  ><img src="../images/icomail2.gif" name="icomail" alt="" title="Ecrire &agrave; Jean-Francois Pillou" width="24"  border="0"></a></div></td>
+<td colspan="3" bgcolor="#8EA6D6"></td>
+</tr>
+
+<tr>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1"><img src="../images/pixel_white.png" height="1" width="100%" alt=""></td>
+<td height="1" rowspan="2"><img src="../images/pixel_white.png" height="1" width="12" alt=""></td>
+
+<td bgcolor="#FFFFFF" height="100%" valign="top" rowspan="2">
+</td>
+</tr>
+
+<tr><td valign="top" colspan="3"><div id="contenu"><h1> Attaques - Attaque de serveurs web</h1><table border="0" cellpadding="0" cellspacing="0" width="722">
+	<tr>
+		<td><img src="images/attaques-web.png" alt="Vuln&eacute;rabilit&eacute;s du web"></td>
+		<td valign="top" width="38"><a href="mailbombing.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a></td>
+		<td valign="top" width="38"><a href="falsification-donnees.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></td>		<td valign="top" width="63"><a href="../index.htm"><img src="../images/logoPClw.gif" alt="Encyclopédie" height="60" width="63" border="0"></a></td>
+		</tr>
+</table>
+<br><div id="CCMmenu"><table width="156">
+<tr><th>Attaques / Arnaques</th></tr>
+<tr><td><a class="mlink" href="attaques.htm">Piratage</a></td></tr>
+<tr><th><span class="rouge">Pirates</span></th></tr>
+<tr><td><a class="mlink" href="typologie-pirates.htm">Typologie de pirates</a></td></tr>
+<tr><td><a class="mlink" href="methodologie.htm">M&eacute;thodologie</a></td></tr>
+<tr><td><a class="mlink" href="exploits.htm">Exploits</a></td></tr>
+<tr><th><span class="rouge">Attaques cryptographiques</span></th></tr>
+<tr><td><a class="mlink" href="passwd.htm">Mot de passe</a></td></tr>
+<tr><td><a class="mlink" href="man-in-the-middle.htm">Man in the middle</a></td></tr>
+<tr><td><a class="mlink" href="rejeu.htm">Rejeu</a></td></tr>
+<tr><th><span class="rouge">D&eacute;ni de service</span></th></tr>
+<tr><td><a class="mlink" href="dos.htm">D&eacute;ni de service</a></td></tr>
+<tr><td><a class="mlink" href="attaque-smurf.htm">Attaque par r&eacute;flexion</a></td></tr>
+<tr><td><a class="mlink" href="attaque-ping-de-la-mort.htm">Ping de la mort</a></td></tr>
+<tr><td><a class="mlink" href="attaque-teardrop.htm">Fragmentation</a></td></tr>
+<tr><td><a class="mlink" href="attaque-land.htm">Land</a></td></tr>
+<tr><td><a class="mlink" href="attaque-syn.htm">SYN</a></td></tr>
+<tr><th><span class="rouge">Techniques</span></th></tr>
+<tr><td><a class="mlink" href="usurpation-ip-spoofing.htm">Usurpation d'adresse IP</a> (<a class="mlink" href="usurpation-ip-spoofing.htm">spoofing</a>)</td></tr>
+<tr><td><a class="mlink" href="vol-session-hijacking.htm">Vol de session</a> (<a class="mlink" href="vol-session-hijacking.htm">hijacking</a>)</td></tr>
+<tr><td><a class="mlink" href="arp-poisoning.htm">ARP poisoning</a></td></tr>
+<tr><td><a class="mlink" href="sniffers.htm">Ecoute r&eacute;seau</a> (<a class="mlink" href="sniffers.htm">sniffers</a>)</td></tr>
+<tr><td><a class="mlink" href="balayage-ports.htm">Balayage de ports</a> (<a class="mlink" href="balayage-ports.htm">Port scanning</a>)</td></tr>
+<tr><td><a class="mlink" href="buffer-overflow.htm">D&eacute;bordement de tampon</a> (<a class="mlink" href="buffer-overflow.htm">Buffer overflow</a>)</td></tr>
+<tr><td><a class="mlink" href="spam.htm">Spam</a></td></tr>
+<tr><td><a class="mlink" href="mailbombing.htm">Mail-bombing</a></td></tr>
+<tr><th><span class="rouge">Vuln&eacute;rabilit&eacute;s du web</span></th></tr>
+<tr><td><a class="mlink" href="attaques-web.htm">Attaques web</a></td></tr>
+<tr><td><a class="mlink" href="falsification-donnees.htm">Falsification de la saisie</a></td></tr>
+<tr><td><a class="mlink" href="manipulation-url.htm">Manipulation d'URL</a></td></tr>
+<tr><td><a class="mlink" href="cross-site-scripting.htm">Cross-Site Scripting</a></td></tr>
+<tr><td><a class="mlink" href="injection-commandes-sql.htm">Injection SQL</a></td></tr>
+<tr><th><span class="rouge">Arnaques</span></th></tr>
+<tr><td><a class="mlink" href="ingenierie-sociale.htm">Ing&eacute;nierie sociale</a> (<a class="mlink" href="ingenierie-sociale.htm">social engineering</a>)</td></tr>
+<tr><td><a class="mlink" href="scam.htm">Scam</a></td></tr>
+<tr><td><a class="mlink" href="phishing.htm">Phishing</a></td></tr>
+<tr><td><a class="mlink" href="loteries.htm">Loteries</a></td></tr>
+<tr><th><span class="rouge">Plus d'information</span></th></tr>
+<tr><td><a class="mlink" href="../virus/virus.htm">Virus</a></td></tr>
+<tr><td><a class="mlink" href="../virus/trojan.htm">Cheval de Troie</a></td></tr>
+<tr><td><a class="mlink" href="../virus/spywares.htm">Spyware</a></td></tr>
+<tr><td><a class="mlink" href="../virus/hoax.htm">Hoax</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/12-securite">FAQ s&eacute;curit&eacute;</a></td></tr>
+<tr><td><a class="mlink" href="http://www.commentcamarche.net/faq/156-internet">FAQ Internet</a></td></tr>
+</table></div>
+<hr>
+
+<a name="vulnerabilite" class="ancre"></a><h2>Vuln&eacute;rabilit&eacute; des services web</h2>
+
+<p align="justify">Les premi&egrave;res attaques r&eacute;seau exploitaient des vuln&eacute;rabilit&eacute;s li&eacute;es
+&agrave; l'impl&eacute;mentation des protocoles de la suite TCP/IP. Avec la correction progressive
+de ces vuln&eacute;rabilit&eacute;s les attaques se sont d&eacute;cal&eacute;es vers les couches
+applicatives et en particulier le web, dans la mesure o&ugrave; la plupart des entreprises
+ouvrent leur syst&egrave;me pare-feu pour le traffic destin&eacute; au web.
+
+<p align="justify">Le protocole HTTP (ou HTTPS) est le standard permettant de v&eacute;hiculer
+les pages web par un m&eacute;canisme de requ&ecirc;tes et de r&eacute;ponses. Utilis&eacute; essentiellement
+pour transporter des pages web informationnelles (pages web statiques), le web est rapidement
+devenu un support interactif permettant de fournir des services en ligne. Le terme
+d'&laquo;&nbsp;application web&nbsp;&raquo; d&eacute;signe ainsi toute application dont l'interface
+est accessible &agrave; travers le web &agrave; l'aide d'un simple navigateur. Devenu
+le support d'un certain nombre de technologies (SOAP, Javascript, XML RPC, etc.), le protocole
+HTTP poss&egrave;de d&eacute;sormais un r&ocirc;le strat&eacute;gique certain dans la
+s&eacute;curit&eacute; des syst&egrave;mes d'information.
+
+<p align="justify">Dans la mesure o&ugrave; les serveurs web sont de plus en plus s&eacute;curis&eacute;s,
+les attaques se sont progressivement d&eacute;cal&eacute;es vers l'exploitation des failles
+des applications web.
+
+<p align="justify">Ainsi, la s&eacute;curit&eacute; des services web doit &ecirc;tre un
+&eacute;l&eacute;ment pris en compte d&egrave;s leur conception et leur d&eacute;veloppement.
+
+<a name="types" class="ancre"></a><h2>Types de vuln&eacute;rabilit&eacute;s</h2>
+
+<p align="center"><img src="images/schema-vulnerabilites-web.png" alt="Vuln&eacute;rabilit&eacute;s des applications web">
+
+<p align="justify">Les vuln&eacute;rabilit&eacute;s des applications web peuvent &ecirc;tre
+cat&eacute;goris&eacute;es de la mani&egrave;re suivante&nbsp;:
+<ul>
+<li>Vuln&eacute;rabilit&eacute;s du serveur web. Ce type de cas est de plus en plus rare
+car au fur et &agrave; mesure des ann&eacute;es les principaux d&eacute;veloppeurs de serveurs
+web ont renforc&eacute; leur s&eacute;curisation&nbsp;;
+<li>Manipulation des URL, consistant &agrave; modifier manuellement les param&egrave;tres
+des URL afin de modifier le comportement attendu du serveur web&nbsp;;
+<li>Exploitation des faiblesses des identifiants de session et des m&eacute;canismes d'authentification&nbsp;;
+<li>Injection de code HTML et Cross-Site Scripting&nbsp;;
+<li>Injection de commandes SQL.
+</ul>
+
+<a name="verification" class="ancre"></a><h2>La n&eacute;cessaire v&eacute;rification des donn&eacute;es d'entr&eacute;e</h2>
+
+<p align="justify">Le <a href="../internet/http.htm">protocole HTTP</a> est par nature pr&eacute;vu pour g&eacute;rer
+des requ&ecirc;tes, c'est-&agrave;-dire recevoir des donn&eacute;es en entr&eacute;e et envoyer
+des donn&eacute;es en retour. Les donn&eacute;es peuvent &ecirc;tre envoy&eacute;es de diverses
+fa&ccedil;ons&nbsp;:
+<ul>
+<li>Via l'<a href="../internet/url.htm">URL</a> de la page web
+<li>Dans les en-t&ecirc;tes HTTP
+<li>Dans le corps de la requ&ecirc;te (requ&ecirc;te POST)
+<li>Via un cookie
+</ul>
+
+<p align="justify">Le principe de base &agrave; retenir d'une mani&egrave;re g&eacute;n&eacute;rale lors
+de tout d&eacute;veloppement informatique est qu'il ne faut pas faire confiance aux donn&eacute;es
+envoy&eacute;es par le client.
+
+<p align="justify">Ainsi, la quasi-totalit&eacute; des vuln&eacute;rabilit&eacute;s des services web
+est li&eacute;e aux n&eacute;gligences des concepteurs, ne faisant pas de v&eacute;rifications sur
+le format des donn&eacute;es saisies par les utilisateurs.
+
+<a name="attaques" class="ancre"></a><h2>Impact des attaques web</h2>
+
+<p align="justify">Les attaques &agrave; l'encontre des applications web sont toujours nuisibles car
+elles donnent une mauvaise image de l'entreprise. Les cons&eacute;quences d'une
+attaque r&eacute;ussie peuvent notamment &ecirc;tre une des suivantes&nbsp;:
+<ul>
+<li>D&eacute;facement de site web&nbsp;;
+<li>Vol d'informations&nbsp;;
+<li>Modification de donn&eacute;es, notamment modification de donn&eacute;es personnelles
+d'utilisateurs&nbsp;;
+<li>Intrusion sur le serveur web.
+</ul>
+
+<h2 id="sujets_sim">Trucs & astuces pertinents trouv&eacute;s dans la base de connaissances</h2><table class="simili"><tr class="sb">
+<td style="width:75px"><span class="">20/02&nbsp;11h26</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-5185-que-peut-faire-le-web-pour-vous"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-5185-que-peut-faire-le-web-pour-vous">Que peut faire le web pour vous ?</a> (<a href="http://www.commentcamarche.net/faq/350-web">Web</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">17/02&nbsp;08h44</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-3004-webmaster-voir-a-quoi-ressemble-votre-site-ailleurs"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-3004-webmaster-voir-a-quoi-ressemble-votre-site-ailleurs">Voir à quoi ressemble votre site ailleurs</a> (<a href="http://www.commentcamarche.net/faq/9-webmaster">Webmaster</a>)</td>
+
+</tr>
+<tr class="sb">
+<td style="width:75px"><span class="Date">15/02&nbsp;17h20</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-3951-webmaster-les-polices-dans-les-pages-web"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-3951-webmaster-les-polices-dans-les-pages-web">Les polices dans les pages web</a> (<a href="http://www.commentcamarche.net/faq/9-webmaster">Webmaster</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">23/01&nbsp;15h45</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-2658-aspirateur-de-pages-html-comment-aspirer-un-site-web"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-2658-aspirateur-de-pages-html-comment-aspirer-un-site-web">Comment aspirer un site Web ?</a> (<a href="http://www.commentcamarche.net/faq/350-web">Web</a>)</td>
+
+</tr>
+<tr class="sb">
+<td style="width:75px"><span class="Date">15/01&nbsp;23h25</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-4541-web-eliminer-totalement-les-publicites-dans-les-pages-web"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-4541-web-eliminer-totalement-les-publicites-dans-les-pages-web">Eliminer totalement les publicités dans les pages web.</a> (<a href="http://www.commentcamarche.net/faq/350-web">Web</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">15/01&nbsp;22h54</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-332-favicon-l-icone-de-votre-site-dans-la-barre-d-adresse"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-332-favicon-l-icone-de-votre-site-dans-la-barre-d-adresse">L'icône de votre site dans la barre d'adresse</a> (<a href="http://www.commentcamarche.net/faq/9-webmaster">Webmaster</a>)</td>
+
+</tr>
+<tr class="sb">
+<td style="width:75px"><span class="Date">10/01&nbsp;16h43</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-4857-freemind-publier-une-mindmap-dans-une-page-web"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-4857-freemind-publier-une-mindmap-dans-une-page-web">Publier une mindmap dans une page web</a> (<a href="http://www.commentcamarche.net/faq/9-webmaster">Webmaster</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">22/12&nbsp;22h09</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-3049-webmaster-publier-facilement-une-video-dans-une-page-web"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-3049-webmaster-publier-facilement-une-video-dans-une-page-web">Publier facilement une vidéo dans une page web</a> (<a href="http://www.commentcamarche.net/faq/9-webmaster">Webmaster</a>)</td>
+
+</tr>
+<tr class="sb">
+<td style="width:75px"><span class="Date">22/11&nbsp;13h03</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-3134-mythes-on-peut-proteger-une-page-web-une-image-contre-la-copie"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-3134-mythes-on-peut-proteger-une-page-web-une-image-contre-la-copie">On peut protéger une page web/une image contre la copie</a> (<a href="http://www.commentcamarche.net/faq/434-mythes-et-legendes">Mythes et légendes</a>)</td>
+
+</tr>
+<tr class="sa">
+<td style="width:75px"><span class="Date">11/11&nbsp;01h39</span></td><td valign="middle"><a href="http://www.commentcamarche.net/faq/sujet-3157-webmaster-coloration-syntaxique-dans-vos-pages-web"><img src="../images/carre.gif" border="0" alt=""></a>&nbsp;<a href="http://www.commentcamarche.net/faq/sujet-3157-webmaster-coloration-syntaxique-dans-vos-pages-web">Coloration syntaxique dans vos pages web</a> (<a href="http://www.commentcamarche.net/faq/9-webmaster">Webmaster</a>)</td>
+
+</tr>
+<tr class="sa"><td colspan="3" style="text-align:right"><img src="../images/plus.png" alt="Piratage web" border="0"> Plus d'astuces sur &laquo;&nbsp;<a href="../astuces/piratage-web"><b>Piratage web</b></a>&nbsp;&raquo;</td></tr></table><h2 id="discus_sim">Discussions pertinentes trouv&eacute;es dans le forum</h2><table class="simili"><tr class="sb">
+<td><span class="Dategris">02/11&nbsp;10h48</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1092517-se-proteger-contre-le-piratage-de-site-web#2006-12-19%2017%3A07%3A55"><img src="../images/carre.gif" border="0" alt="proteger contre piratage site web"></a><a href="http://www.commentcamarche.net/forum/affich-1092517-se-proteger-contre-le-piratage-de-site-web">&nbsp;Se proteger contre le piratage de site web?</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">19/12&nbsp;17h07</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1092517-se-proteger-contre-le-piratage-de-site-web#2006-12-19%2017%3A07%3A55">sebsauvage</a></td><td style="text-align:center"><span class="Texte">4</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">13/09&nbsp;17h18</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1000394-comment-pirater-un-site-web#2004-09-14%2008%3A10%3A27"><img src="../images/carreblock.gif" border="0" alt="pirater site web" title="La discussion a été fermée par un modérateur.
+Vous pouvez uniquement lire les discussions mais vous ne pouvez pas y répondre.
+"></a><a href="http://www.commentcamarche.net/forum/affich-1000394-comment-pirater-un-site-web">&nbsp;comment pirater un site web</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">14/09&nbsp;08h10</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1000394-comment-pirater-un-site-web#2004-09-14%2008%3A10%3A27">BmV</a></td><td style="text-align:center"><span class="Texte">2</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Date">29/12&nbsp;21h02</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2556739-mozilla-site-web-pirate#2007-02-07%2011%3A14%3A53"><img src="../images/carre.gif" border="0" alt="mozilla site web piraté"></a><a href="http://www.commentcamarche.net/forum/affich-2556739-mozilla-site-web-pirate">&nbsp;[Mozilla]  !!!!  Site Web piraté   !!!!</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">07/02&nbsp;11h14</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2556739-mozilla-site-web-pirate#2007-02-07%2011%3A14%3A53">Arno59</a></td><td style="text-align:center"><span class="Texte">1</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">28/08&nbsp;11h39</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-967967-page-web-wanadoo-piratee#2004-08-28%2011%3A39%3A06"><img src="../images/carregold.png" border="0" alt="page web wanadoo piratée"></a><a href="http://www.commentcamarche.net/forum/affich-967967-page-web-wanadoo-piratee">&nbsp;Page web wanadoo piratée !</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-24-webmastering">Webmastering</a></td>
+<td><span class="Date">28/08&nbsp;11h39</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-967967-page-web-wanadoo-piratee#2004-08-28%2011%3A39%3A06">steb33</a></td><td style="text-align:center"><span class="ForumRed">0</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">02/12&nbsp;09h15</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1953112-piratage-en-wifi#2007-02-08%2010%3A33%3A19"><img src="../images/carrevalid.png" border="0" alt="piratage wifi"></a><a href="http://www.commentcamarche.net/forum/affich-1953112-piratage-en-wifi">&nbsp;Piratage en WiFI</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-5-reseaux">Réseaux</a></td>
+<td><span class="Date">08/02&nbsp;10h33</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-1953112-piratage-en-wifi#2007-02-08%2010%3A33%3A19">Beowulf</a></td><td style="text-align:center"><span class="Texte">29</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Dategris">19/07&nbsp;21h19</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1680270-pirater-un-compte-mail-facile#2007-01-18%2022%3A29%3A56"><img src="../images/carrevalid.png" border="0" alt="pirater compte mail facile"></a><a href="http://www.commentcamarche.net/forum/affich-1680270-pirater-un-compte-mail-facile">&nbsp;PIRATER UN COMPTE MAIL ? ...FACILE !</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">18/01&nbsp;22h29</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1680270-pirater-un-compte-mail-facile#2007-01-18%2022%3A29%3A56">Ssylvainsab</a></td><td style="text-align:center"><span class="Texte">59</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">10/10&nbsp;09h28</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-1843842-un-probleme-avec-une-page-web-qui-arrive#2005-12-01%2018%3A57%3A21"><img src="../images/carrevalid.png" border="0" alt="page web"></a><a href="http://www.commentcamarche.net/forum/affich-1843842-un-probleme-avec-une-page-web-qui-arrive">&nbsp;Un problème avec une page web qui arrive ?</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-10-internet">Internet</a></td>
+<td><span class="Date">01/12&nbsp;18h57</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-1843842-un-probleme-avec-une-page-web-qui-arrive#2005-12-01%2018%3A57%3A21">regis59</a></td><td style="text-align:center"><span class="Texte">54</span></td>
+</tr>
+<tr class="sb">
+<td><span class="Date">10/01&nbsp;20h26</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2581778-virus-trojan-web-et-prog-ploques#2007-01-12%2023%3A28%3A50"><img src="../images/carrevalid.png" border="0" alt="virus trojan web prog ploqués"></a><a href="http://www.commentcamarche.net/forum/affich-2581778-virus-trojan-web-et-prog-ploques">&nbsp;[Virus] trojan web et prog ploqués</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">12/01&nbsp;23h28</span><span class="Date">-&gt;</span><a class="mlink2" href="http://www.commentcamarche.net/forum/affich-2581778-virus-trojan-web-et-prog-ploques#2007-01-12%2023%3A28%3A50">S&eacute;b08</a></td><td style="text-align:center"><span class="Texte">51</span></td>
+</tr>
+<tr class="sa">
+<td><span class="Dategris">11/06&nbsp;00h38</span></td>
+<td style="vertical-align:middle"><a href="http://www.commentcamarche.net/forum/affich-2268068-compte-gmail-pirate#2006-11-13%2015%3A31%3A24"><img src="../images/carrevalid.png" border="0" alt="compte gmail piraté"></a><a href="http://www.commentcamarche.net/forum/affich-2268068-compte-gmail-pirate">&nbsp;compte gmail piraté</a></td>
+<td><a href="http://www.commentcamarche.net/forum/forum-7-virus-securite">Virus/Sécurité</a></td>
+<td><span class="Date">13/11&nbsp;15h31</span><span class="Date">-&gt;</span><a class="Date" href="http://www.commentcamarche.net/forum/affich-2268068-compte-gmail-pirate#2006-11-13%2015%3A31%3A24">assi</a></td><td style="text-align:center"><span class="Texte">48</span></td>
+</tr>
+	<tr class="sa">
+	<td colspan="2"><span class="Texte"><img src="../images/carreblock.gif" width="12" alt="" title="Discussion ferm&eacute;e">Discussion ferm&eacute;e
+    <img src="../images/carrevalid.png" width="12" alt="" title="Probl&egrave;me r&eacute;solu">Probl&egrave;me r&eacute;solu</span></td>
+	<td style="vertical-align:top;text-align:right;" colspan="3"><img src="../images/plus.png" alt="Piratage web" border="0"> Plus de discussions sur &laquo;&nbsp;<a href="http://www.commentcamarche.net/f/piratage-web"><b>Piratage web</b></a>&nbsp;&raquo;</td></tr></table>
+<br><span class="Footer">Ce document intitul&eacute; &laquo;&nbsp;<a href="http://www.commentcamarche.net/attaques/attaques-web.php3">Attaques - Attaque de serveurs web</a>&nbsp;&raquo; issu de l'<a href="http://www.commentcamarche.net/encyclopedie/">encyclop&eacute;die</a> <a href="http://www.commentcamarche.net/informatique/informatique.php3">informatique</a> <a href="http://www.commentcamarche.net">Comment &Ccedil;a Marche</a> (<a href="http://www.commentcamarche.net/">www.commentcamarche.net</a>) est mis &agrave; disposition sous les termes de la licence <a href="../ccmguide/ccmlicence.htm">Creative Commons</a>.
+Vous pouvez copier, modifier des copies de cette page, dans les conditions fix&eacute;es par la licence, tant que cette note appara&icirc;t clairement.</span>
+<br>&nbsp;
+<center><a href="mailbombing.htm"><img src="../images/bckward.gif" border="0" width="38" height="63" alt=""></a>
+<a href="falsification-donnees.htm"><img src="../images/forward.gif" border="0" width="38" height="63" alt=""></a></center>
+</div>
+
+</td>
+</tr>
+
+<tr><th colspan="4" style="background-color:#CED7F6">&nbsp;</th></tr>
+</table>
+<div id="footer"><br><a href="../ccmguide/ccmintro.htm"><b>A propos</b></a> | <a href="../ccmguide/cgu-conditions-generales.htm"><b>Conditions g&eacute;n&eacute;rales</b></a>  | &copy; Tous droits r&eacute;serv&eacute;s 2007 <a href="http://www.commentcamarche.net">Quidéa</a>
+</div>
+</body>
+</html>
